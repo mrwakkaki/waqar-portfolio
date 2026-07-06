@@ -1,0 +1,2841 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Waqar Ahmad — Video Editor & Motion Designer</title>
+
+  <!-- ═══════════════════════════════════════════
+       SEO META — Update description as you wish
+  ════════════════════════════════════════════ -->
+  <meta name="description"
+    content="Waqar Ahmad — Professional Video Editor, Motion Graphics Designer & Color Grading Specialist from Faisalabad, Pakistan. 3+ years of cinematic storytelling." />
+  <meta name="keywords"
+    content="Video Editor Pakistan, Motion Graphics, Color Grading, YouTube Editing, Faisalabad, Waqar Ahmad" />
+  <meta name="author" content="Waqar Ahmad" />
+  <meta property="og:title" content="Waqar Ahmad — Video Editor & Motion Designer" />
+  <meta property="og:description" content="Professional Video Editor with 3+ years crafting cinematic stories." />
+  <meta property="og:type" content="website" />
+
+  <!-- ═══════════════════════════════════════════
+       FONTS — Orbitron (Primary) + Space Grotesk (Secondary)
+  ════════════════════════════════════════════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    /* ════════════════════════════════════════════════════════
+       ██████  THEME TOKENS & ROOT VARIABLES  ██████
+    ════════════════════════════════════════════════════════ */
+    :root {
+      /* ── Brand Palette ── */
+      --c-navy:   #023047;
+      --c-teal:   #219EBC;
+      --c-yellow: #FFB703;
+      --c-orange: #FB8500;
+      --c-sky:    #8ECAE6;
+
+      /* ── Dark Theme (Default) ── */
+      --bg-base:       #060f18;
+      --bg-alt:        #091622;
+      --bg-card:       #0d2136;
+      --bg-card-hover: #102840;
+      --bg-nav:        rgba(6, 15, 24, 0.88);
+      --accent:        #219EBC;
+      --accent-glow:   rgba(33, 158, 188, 0.22);
+      --accent-glow2:  rgba(33, 158, 188, 0.08);
+      --highlight:     #FFB703;
+      --cta:           #FB8500;
+      --sky:           #8ECAE6;
+      --text-1:        #EDF7FF;
+      --text-2:        #8ECAE6;
+      --text-3:        #3e6f84;
+      --border:        rgba(33, 158, 188, 0.13);
+      --border-h:      rgba(33, 158, 188, 0.42);
+      --shadow:        0 8px 48px rgba(0,0,0,.55);
+      --shadow-card:   0 4px 30px rgba(0,0,0,.45);
+
+      /* ── Typography ── */
+      --f-head: 'Orbitron', sans-serif;
+      --f-body: 'Space Grotesk', sans-serif;
+
+      /* ── Layout ── */
+      --nav-h:    80px;
+      --pad-sec:  110px;
+      --max-w:    1280px;
+      --radius:   6px;
+      --ease:     cubic-bezier(.25,.46,.45,.94);
+      --ease-spring: cubic-bezier(.34,1.56,.64,1);
+    }
+
+    /* ── Light Theme Override ── */
+    [data-theme="light"] {
+      --bg-base:       #EEF7FF;
+      --bg-alt:        #E2F1FB;
+      --bg-card:       #FFFFFF;
+      --bg-card-hover: #F5FBFF;
+      --bg-nav:        rgba(238, 247, 255, 0.92);
+      --accent:        #0c7fa0;
+      --accent-glow:   rgba(12, 127, 160, 0.12);
+      --accent-glow2:  rgba(12, 127, 160, 0.05);
+      --highlight:     #c98b00;
+      --cta:           #d46f00;
+      --sky:           #3a7d9a;
+      --text-1:        #01202f;
+      --text-2:        #0a4f6b;
+      --text-3:        #6a9aaa;
+      --border:        rgba(2, 48, 71, 0.09);
+      --border-h:      rgba(2, 48, 71, 0.28);
+      --shadow:        0 8px 48px rgba(2,48,71,.08);
+      --shadow-card:   0 4px 30px rgba(2,48,71,.07);
+    }
+
+    /* ════════════════════════════════════════════════════════
+       RESET & BASE
+    ════════════════════════════════════════════════════════ */
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--nav-h);
+    }
+
+    body {
+      font-family: var(--f-body);
+      background: var(--bg-base);
+      color: var(--text-1);
+      overflow-x: hidden;
+      transition: background .4s ease, color .4s ease;
+      cursor: none;
+    }
+
+    @media (hover:none) { body { cursor: auto; } }
+
+    img { max-width:100%; display:block; }
+    a   { text-decoration:none; color:inherit; }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius:2px; }
+
+    /* ════════════════════════════════════════════════════════
+       PROGRESS BAR
+    ════════════════════════════════════════════════════════ */
+    #progress-bar {
+      position: fixed; top:0; left:0; height:2px; z-index:9999;
+      background: linear-gradient(90deg, var(--accent), var(--highlight), var(--cta));
+      width:0; transition: width .08s linear;
+    }
+
+    /* ════════════════════════════════════════════════════════
+       CUSTOM CURSOR
+    ════════════════════════════════════════════════════════ */
+    #cur-ring {
+      position:fixed; width:38px; height:38px;
+      border:1.5px solid var(--accent); border-radius:50%;
+      pointer-events:none; z-index:9997;
+      transform:translate(-50%,-50%);
+      transition: width .25s var(--ease), height .25s var(--ease),
+                  border-color .25s ease, background .25s ease;
+      mix-blend-mode: difference;
+    }
+    #cur-dot {
+      position:fixed; width:5px; height:5px;
+      background:var(--accent); border-radius:50%;
+      pointer-events:none; z-index:9998;
+      transform:translate(-50%,-50%);
+      transition: width .15s ease, height .15s ease, background .15s ease;
+    }
+    #cur-ring.hov { width:62px; height:62px; border-color:var(--highlight); background:rgba(255,183,3,.06); }
+    #cur-dot.hov  { width:3px; height:3px; background:var(--highlight); }
+
+    /* ════════════════════════════════════════════════════════
+       NAVBAR
+    ════════════════════════════════════════════════════════ */
+    nav {
+      position:fixed; top:0; left:0; right:0;
+      height:var(--nav-h);
+      display:flex; align-items:center; justify-content:space-between;
+      padding:0 5%; z-index:1000;
+      transition:background .4s ease, border-color .4s ease;
+      border-bottom:1px solid transparent;
+    }
+    nav.scrolled {
+      background:var(--bg-nav);
+      backdrop-filter:blur(22px); -webkit-backdrop-filter:blur(22px);
+      border-bottom-color:var(--border);
+    }
+
+    .nav-logo {
+      font-family:var(--f-head); font-size:1.05rem; font-weight:900;
+      letter-spacing:.04em; color:var(--text-1);
+    }
+    .nav-logo span { color:var(--accent); }
+
+    .nav-links {
+      display:flex; align-items:center; gap:2.4rem; list-style:none;
+    }
+    .nav-links a {
+      font-family:var(--f-head); font-size:.62rem;
+      font-weight:500; letter-spacing:.18em; text-transform:uppercase;
+      color:var(--text-2); position:relative; padding-bottom:4px;
+      transition:color .3s ease;
+    }
+    .nav-links a::after {
+      content:''; position:absolute; bottom:0; left:0;
+      width:0; height:1px; background:var(--accent);
+      transition:width .38s var(--ease);
+    }
+    .nav-links a:hover { color:var(--text-1); }
+    .nav-links a:hover::after { width:100%; }
+
+    .nav-right { display:flex; align-items:center; gap:1.2rem; }
+
+    /* Theme Toggle */
+    .theme-btn {
+      display:flex; align-items:center; gap:7px;
+      background:none; border:1px solid var(--border);
+      border-radius:50px; padding:7px 16px; cursor:none;
+      font-family:var(--f-head); font-size:.58rem;
+      letter-spacing:.12em; text-transform:uppercase;
+      color:var(--text-2); transition:all .3s ease;
+    }
+    .theme-btn:hover {
+      border-color:var(--accent); color:var(--accent);
+      background:var(--accent-glow);
+    }
+
+    /* Hire Me CTA */
+    .nav-hire {
+      display:inline-flex; align-items:center; gap:8px;
+      font-family:var(--f-head); font-size:.62rem; font-weight:700;
+      letter-spacing:.14em; text-transform:uppercase;
+      color:var(--bg-base); background:var(--accent);
+      padding:11px 26px; border-radius:var(--radius);
+      border:none; cursor:none; position:relative; overflow:hidden;
+      transition:transform .3s ease, box-shadow .3s ease, background .3s ease;
+    }
+    .nav-hire::after {
+      content:''; position:absolute; inset:0; background:#fff;
+      transform:scaleX(0); transform-origin:left;
+      transition:transform .4s var(--ease); mix-blend-mode:overlay;
+    }
+    .nav-hire:hover { transform:translateY(-2px); box-shadow:0 12px 35px var(--accent-glow); }
+    .nav-hire:hover::after { transform:scaleX(1); }
+
+    /* Hamburger */
+    .ham {
+      display:none; flex-direction:column; gap:5px;
+      background:none; border:none; cursor:none; padding:4px;
+    }
+    .ham span {
+      display:block; width:22px; height:1.5px;
+      background:var(--text-1); transition:all .35s var(--ease);
+    }
+    .ham.open span:nth-child(1) { transform:rotate(45deg) translate(4.5px,5px); }
+    .ham.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
+    .ham.open span:nth-child(3) { transform:rotate(-45deg) translate(4.5px,-5px); }
+
+    /* Mobile Drawer */
+    .mob-menu {
+      position:fixed; inset:0; top:var(--nav-h);
+      background:var(--bg-alt); z-index:990;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      gap:2.5rem;
+      transform:translateY(-110%); opacity:0;
+      transition:transform .5s var(--ease), opacity .4s ease;
+      pointer-events:none;
+    }
+    .mob-menu.open { transform:translateY(0); opacity:1; pointer-events:all; }
+    .mob-menu a {
+      font-family:var(--f-head); font-size:1.4rem; font-weight:700;
+      letter-spacing:.08em; text-transform:uppercase;
+      color:var(--text-2); transition:color .3s ease;
+    }
+    .mob-menu a:hover { color:var(--accent); }
+
+    /* ════════════════════════════════════════════════════════
+       HERO SECTION
+    ════════════════════════════════════════════════════════ */
+    #home {
+      position:relative; min-height:100vh;
+      display:flex; align-items:center; overflow:hidden;
+    }
+
+    #hero-canvas {
+      position:absolute; inset:0; z-index:0; pointer-events:none;
+    }
+
+    /* Glowing orbs */
+    .orb {
+      position:absolute; border-radius:50%;
+      filter:blur(90px); pointer-events:none; z-index:0;
+    }
+    .orb-1 {
+      width:560px; height:560px;
+      background:radial-gradient(circle, rgba(33,158,188,.12) 0%, transparent 70%);
+      top:-120px; right:-80px;
+      animation: floatA 9s ease-in-out infinite;
+    }
+    .orb-2 {
+      width:420px; height:420px;
+      background:radial-gradient(circle, rgba(255,183,3,.07) 0%, transparent 70%);
+      bottom:-80px; left:-60px;
+      animation: floatB 12s ease-in-out infinite;
+    }
+    .orb-3 {
+      width:280px; height:280px;
+      background:radial-gradient(circle, rgba(251,133,0,.06) 0%, transparent 70%);
+      top:50%; left:38%;
+      animation: floatC 14s ease-in-out infinite;
+    }
+    @keyframes floatA { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(-28px,38px) scale(1.05)} }
+    @keyframes floatB { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(36px,-28px) scale(1.09)} }
+    @keyframes floatC { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(-18px,22px) scale(.96)} }
+
+    /* Hero noise texture */
+    .hero-noise {
+      position:absolute; inset:0; z-index:1; pointer-events:none; opacity:.35;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+    }
+
+    .hero-inner {
+      position:relative; z-index:2;
+      width:100%; max-width:var(--max-w);
+      margin:0 auto; padding:0;
+      padding-top:calc(var(--nav-h) + 40px);
+      padding-bottom:100px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:3rem;
+      align-items:center;
+    }
+    .hero-left { display:flex; flex-direction:column; align-items:flex-start; }
+    .hero-right {
+      display:flex; align-items:center; justify-content:center;
+      position:relative;
+    }
+
+    /* Availability badge */
+    .avail-badge {
+      display:inline-flex; align-items:center; gap:9px;
+      background:rgba(34,197,94,.09); border:1px solid rgba(34,197,94,.28);
+      border-radius:50px; padding:7px 18px;
+      font-family:var(--f-head); font-size:.55rem;
+      letter-spacing:.2em; text-transform:uppercase; color:#22c55e;
+      margin-bottom:2.2rem;
+      animation:fadeUp .7s ease both;
+    }
+    .avail-dot {
+      width:6px; height:6px; border-radius:50%; background:#22c55e;
+      animation:pulse 1.8s ease infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.45;transform:scale(.75)} }
+
+    /* Top label badge */
+    .hero-eyebrow {
+      display:inline-flex; align-items:center; gap:10px;
+      border:1px solid var(--border); border-radius:50px;
+      padding:8px 20px; margin-bottom:2rem;
+      font-family:var(--f-head); font-size:.58rem;
+      letter-spacing:.22em; text-transform:uppercase; color:var(--sky);
+      animation:fadeUp .8s ease .08s both;
+    }
+    .hero-eyebrow .pip {
+      width:5px; height:5px; border-radius:50%; background:var(--accent);
+      animation:pulse 2.2s ease infinite;
+    }
+
+    /* MAIN TITLE */
+    .hero-title {
+      font-family:var(--f-head);
+      font-size:clamp(3.2rem, 9.5vw, 9rem);
+      font-weight:900; line-height:.92;
+      letter-spacing:-.025em; text-transform:uppercase;
+      margin-bottom:2rem; overflow:hidden;
+    }
+    .hero-title-line { display:block; overflow:hidden; }
+    .hero-title-word {
+      display:inline-block;
+      animation:slideUp .95s cubic-bezier(.16,1,.3,1) both;
+    }
+    .d1{animation-delay:.05s}
+    .d2{animation-delay:.15s}
+    .ac{color:var(--accent);}
+
+    @keyframes slideUp {
+      from{transform:translateY(115%);opacity:0}
+      to{transform:translateY(0);opacity:1}
+    }
+
+    /* Punchy Quote */
+    .hero-quote {
+      font-size:clamp(1rem, 2vw, 1.3rem);
+      font-weight:300; color:var(--text-2); line-height:1.65;
+      max-width:540px; margin-bottom:1.8rem;
+      animation:fadeUp .9s ease .35s both;
+    }
+    .hero-quote em {
+      font-style:normal; color:var(--highlight); font-weight:600;
+    }
+
+    /* Role typewriter */
+    .hero-role {
+      display:flex; align-items:center; gap:14px;
+      font-family:var(--f-head); font-size:.7rem;
+      letter-spacing:.22em; text-transform:uppercase; color:var(--text-3);
+      margin-bottom:2.8rem;
+      animation:fadeUp .9s ease .45s both;
+      min-height:1.4em;
+    }
+    .hero-role::before {
+      content:''; display:block; width:28px; height:1px; background:var(--accent);
+    }
+    #typewriter { color:var(--accent); min-width:260px; }
+
+    /* Buttons */
+    .hero-btns {
+      display:flex; gap:1.2rem; flex-wrap:wrap;
+      animation:fadeUp .9s ease .55s both;
+    }
+
+    .btn-prim {
+      display:inline-flex; align-items:center; gap:10px;
+      background:var(--accent); color:var(--bg-base);
+      padding:16px 38px; border-radius:var(--radius);
+      font-family:var(--f-head); font-size:.68rem; font-weight:700;
+      letter-spacing:.14em; text-transform:uppercase;
+      border:none; cursor:none; position:relative; overflow:hidden;
+      transition:transform .35s ease, box-shadow .35s ease;
+    }
+    .btn-prim::after {
+      content:''; position:absolute; inset:0; background:#fff;
+      transform:scaleX(0); transform-origin:left;
+      transition:transform .4s var(--ease); mix-blend-mode:overlay;
+    }
+    .btn-prim:hover { transform:translateY(-3px); box-shadow:0 18px 44px var(--accent-glow); }
+    .btn-prim:hover::after { transform:scaleX(1); }
+
+    .btn-sec {
+      display:inline-flex; align-items:center; gap:10px;
+      background:transparent; color:var(--text-1);
+      padding:15px 38px; border-radius:var(--radius);
+      font-family:var(--f-head); font-size:.68rem; font-weight:600;
+      letter-spacing:.14em; text-transform:uppercase;
+      border:1px solid var(--border); cursor:none;
+      transition:all .35s ease;
+    }
+    .btn-sec:hover {
+      border-color:var(--accent); color:var(--accent);
+      transform:translateY(-3px); background:var(--accent-glow);
+    }
+
+    /* Stats row */
+    .hero-stats {
+      display:flex; gap:0; flex-wrap:nowrap;
+      justify-content:space-between; margin-top:4.5rem;
+      padding-top:3rem; width:100%;
+      border-top:1px solid var(--border);
+      animation:fadeUp .9s ease .65s both;
+    }
+    .stat-num {
+      font-family:var(--f-head);
+      font-size:clamp(1.8rem, 3vw, 2.8rem);
+      font-weight:900; line-height:1; color:var(--text-1);
+    }
+    .stat-num span { color:var(--accent); }
+    .stat-lbl {
+      font-size:.7rem; color:var(--text-3);
+      letter-spacing:.1em; text-transform:uppercase; margin-top:6px;
+    }
+
+    /* Scroll indicator */
+    .scroll-ind {
+      position:absolute; bottom:38px; left:50%; transform:translateX(-50%);
+      display:flex; flex-direction:column; align-items:center; gap:8px;
+      z-index:3; animation:fadeUp 1s ease 1.3s both;
+    }
+    .scroll-ind-line {
+      width:1px; height:55px;
+      background:linear-gradient(to bottom, var(--accent), transparent);
+      animation:scrollBlink 2s ease-in-out infinite;
+    }
+    .scroll-ind-txt {
+      font-family:var(--f-head); font-size:.5rem;
+      letter-spacing:.3em; text-transform:uppercase; color:var(--text-3);
+    }
+    @keyframes scrollBlink { 0%,100%{opacity:1;transform:scaleY(1)} 50%{opacity:.35;transform:scaleY(.6)} }
+
+    @keyframes fadeUp {
+      from{opacity:0;transform:translateY(28px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+
+    /* ════════════════════════════════════════════════════════
+       MARQUEE TICKER
+    ════════════════════════════════════════════════════════ */
+    .ticker {
+      overflow:hidden; padding:14px 0;
+      background:var(--accent);
+      border-top:1px solid rgba(255,255,255,.08);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .ticker-track {
+      display:flex; white-space:nowrap;
+      animation:tickerMove 28s linear infinite;
+    }
+    .ticker-track:hover { animation-play-state:paused; }
+    .tick-item {
+      font-family:var(--f-head); font-size:.62rem; font-weight:600;
+      letter-spacing:.22em; text-transform:uppercase;
+      color:var(--bg-base); padding:0 2.4rem;
+      display:flex; align-items:center; gap:.9rem;
+    }
+    .tick-sep { opacity:.35; }
+    @keyframes tickerMove { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+    /* ════════════════════════════════════════════════════════
+       SHARED SECTION UTILITIES
+    ════════════════════════════════════════════════════════ */
+    .sec {
+      padding:var(--pad-sec) 5%;
+    }
+    .sec-inner {
+      max-width:var(--max-w); margin:0 auto;
+    }
+
+    .sec-eyebrow {
+      display:flex; align-items:center; gap:12px;
+      font-family:var(--f-head); font-size:.58rem;
+      letter-spacing:.28em; text-transform:uppercase; color:var(--accent);
+      margin-bottom:1.1rem;
+    }
+    .sec-eyebrow::before {
+      content:''; display:inline-block;
+      width:18px; height:1px; background:var(--accent);
+    }
+
+    .sec-title {
+      font-family:var(--f-head);
+      font-size:clamp(1.9rem, 4.5vw, 3.6rem);
+      font-weight:800; line-height:1.08;
+      letter-spacing:-.02em; color:var(--text-1);
+      margin-bottom:1.4rem;
+    }
+    .sec-title em { font-style:normal; color:var(--accent); }
+
+    .sec-sub {
+      font-size:clamp(.9rem, 1.4vw, 1.05rem);
+      color:var(--text-2); line-height:1.75;
+      max-width:580px; margin-bottom:3.8rem;
+    }
+
+    .divider { height:1px; background:var(--border); margin:0 5%; }
+
+    /* Scroll reveal */
+    .rev {
+      opacity:0; transform:translateY(38px);
+      transition:opacity .85s cubic-bezier(.16,1,.3,1),
+                  transform .85s cubic-bezier(.16,1,.3,1);
+    }
+    .rev.in { opacity:1; transform:translateY(0); }
+    .r1{transition-delay:.08s} .r2{transition-delay:.16s} .r3{transition-delay:.24s}
+    .r4{transition-delay:.32s} .r5{transition-delay:.4s}  .r6{transition-delay:.48s}
+
+    /* ════════════════════════════════════════════════════════
+       ABOUT SECTION
+    ════════════════════════════════════════════════════════ */
+    #about { background:var(--bg-alt); }
+
+    .about-grid {
+      display:grid; grid-template-columns:1fr 1.2fr;
+      gap:5rem; align-items:center;
+    }
+
+    /* Photo side */
+    .about-img-wrap {
+      position:relative;
+    }
+    .about-img-inner {
+      position:relative; border-radius:10px; overflow:hidden;
+      border:1px solid var(--border);
+    }
+    .about-img-inner::before {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(to bottom, transparent 55%, rgba(6,15,24,.9));
+      z-index:1; pointer-events:none;
+    }
+
+    /*
+    ╔══════════════════════════════════════════════════════╗
+    ║  HOW TO ADD YOUR PHOTO                              ║
+    ║  1. Delete the .about-placeholder div below         ║
+    ║  2. Add this instead:                               ║
+    ║     <img src="your-photo.jpg" alt="Waqar Ahmad"    ║
+    ║          class="about-photo">                       ║
+    ║  CSS already defined below for .about-photo         ║
+    ╚══════════════════════════════════════════════════════╝
+    */
+    .about-placeholder {
+      width:100%; aspect-ratio:4/5;
+      background:linear-gradient(145deg, var(--bg-card) 0%,
+        rgba(33,158,188,.08) 50%, var(--bg-card) 100%);
+      display:flex; flex-direction:column; align-items:center;
+      justify-content:center; gap:8px;
+      font-family:var(--f-head); font-size:.6rem;
+      letter-spacing:.15em; text-transform:uppercase; color:var(--text-3);
+    }
+    .about-photo {
+      width:100%; aspect-ratio:4/5; object-fit:cover; display:block;
+    }
+
+    /* Accent lines */
+    .about-line-v {
+      position:absolute; top:24px; left:-16px;
+      width:3px; height:55%; border-radius:2px;
+      background:linear-gradient(to bottom, var(--accent), transparent);
+    }
+    .about-line-h {
+      position:absolute; bottom:-16px; right:24px;
+      height:3px; width:55%; border-radius:2px;
+      background:linear-gradient(to right, transparent, var(--accent));
+    }
+
+    /* Badge */
+    .about-badge {
+      position:absolute; bottom:24px; right:-18px;
+      background:var(--accent); color:var(--bg-base);
+      border-radius:8px; padding:18px 22px; text-align:center; z-index:3;
+    }
+    .ab-num {
+      font-family:var(--f-head); font-size:2.2rem; font-weight:900;
+      line-height:1; display:block;
+    }
+    .ab-lbl {
+      font-family:var(--f-head); font-size:.5rem;
+      letter-spacing:.1em; text-transform:uppercase; opacity:.85;
+    }
+
+    /* Text side */
+    .about-body p {
+      color:var(--text-2); line-height:1.82; margin-bottom:1.1rem; font-size:1rem;
+    }
+    .about-body p strong { color:var(--text-1); font-weight:600; }
+
+    /* Skill bars */
+    .skills-grid {
+      display:grid; grid-template-columns:1fr 1fr; gap:1.1rem; margin-top:2.2rem;
+    }
+    .skill-item { display:flex; flex-direction:column; gap:7px; }
+    .skill-hd {
+      display:flex; justify-content:space-between;
+      font-family:var(--f-head); font-size:.57rem;
+      letter-spacing:.1em; text-transform:uppercase; color:var(--text-2);
+    }
+    .skill-hd .pct { color:var(--accent); }
+    .skill-track { height:2px; background:var(--border); border-radius:1px; overflow:hidden; }
+    .skill-fill {
+      height:100%;
+      background:linear-gradient(90deg, var(--accent), var(--highlight));
+      border-radius:1px; width:0;
+      transition:width 1.6s cubic-bezier(.16,1,.3,1);
+    }
+
+    .about-cta {
+      display:flex; gap:1rem; flex-wrap:wrap; margin-top:2.8rem;
+    }
+
+    /* ════════════════════════════════════════════════════════
+       WORK / PORTFOLIO SECTION
+    ════════════════════════════════════════════════════════ */
+    #work { background:var(--bg-base); }
+
+    .work-top {
+      display:flex; justify-content:space-between; align-items:flex-end;
+      flex-wrap:wrap; gap:1rem; margin-bottom:2.5rem;
+    }
+
+    /* Filter buttons */
+    .work-filters { display:flex; gap:.75rem; flex-wrap:wrap; margin-bottom:3rem; }
+    .flt-btn {
+      background:none; border:1px solid var(--border);
+      color:var(--text-3); padding:8px 20px; border-radius:50px;
+      font-family:var(--f-head); font-size:.57rem; letter-spacing:.1em;
+      text-transform:uppercase; cursor:none; transition:all .3s ease;
+    }
+    .flt-btn.active, .flt-btn:hover {
+      border-color:var(--accent); color:var(--accent); background:var(--accent-glow2);
+    }
+
+    /*
+    ╔══════════════════════════════════════════════════════╗
+    ║  HOW TO ADD A NEW PROJECT                           ║
+    ║  1. Copy a .work-card block from below              ║
+    ║  2. Paste it inside #work-grid                      ║
+    ║  3. Edit: data-category, gradient, title, desc,     ║
+    ║     year, and the href link                         ║
+    ║                                                     ║
+    ║  data-category options:                             ║
+    ║    "editing"  "motion"  "thumbnail"  "web"         ║
+    ║                                                     ║
+    ║  TO USE A REAL THUMBNAIL IMAGE:                     ║
+    ║  Replace .work-thumb-ph div with:                   ║
+    ║    <img src="thumb.jpg" class="work-thumb-img">     ║
+    ║                                                     ║
+    ║  HOW TO REMOVE A PROJECT:                           ║
+    ║  Delete the entire <div class="work-card"> block    ║
+    ╚══════════════════════════════════════════════════════╝
+    */
+
+    .work-grid {
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:2px;
+    }
+
+    .work-card {
+      position:relative; overflow:hidden;
+      cursor:none; background:var(--bg-card);
+    }
+    /* First card spans full width — featured project */
+    .work-card.featured { grid-column:span 2; }
+
+    .work-thumb-ph {
+      width:100%; aspect-ratio:16/9;
+      display:flex; align-items:center; justify-content:center;
+      transition:transform .7s var(--ease);
+    }
+    .work-card.featured .work-thumb-ph { aspect-ratio:21/9; }
+
+    .work-thumb-img {
+      width:100%; object-fit:cover; display:block;
+      aspect-ratio:16/9;
+      transition:transform .7s var(--ease);
+    }
+    .work-card.featured .work-thumb-img { aspect-ratio:21/9; }
+
+    .play-btn {
+      width:58px; height:58px; border-radius:50%;
+      background:rgba(33,158,188,.15); border:1px solid var(--border);
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.2rem; color:var(--text-1);
+      transition:all .35s var(--ease-spring);
+    }
+    .work-card:hover .play-btn {
+      background:var(--accent); border-color:var(--accent); transform:scale(1.12);
+    }
+    .work-card:hover .work-thumb-ph,
+    .work-card:hover .work-thumb-img { transform:scale(1.05); }
+
+    .work-overlay {
+      position:absolute; inset:0;
+      background:linear-gradient(to top,
+        rgba(0,0,0,.92) 0%, rgba(0,0,0,.55) 45%, transparent 100%);
+      display:flex; flex-direction:column; justify-content:flex-end;
+      padding:2.2rem;
+    }
+    .w-cat {
+      font-family:var(--f-head); font-size:.52rem; letter-spacing:.25em;
+      text-transform:uppercase; color:var(--accent); 
+      text-shadow: 0 0 12px rgba(33,158,188,.8), 0 0 24px rgba(33,158,188,.4);
+      margin-bottom:.6rem;
+      opacity:0; transform:translateY(9px); transition:all .35s ease;
+    }
+    .w-title {
+      font-family:var(--f-head);
+      font-size:clamp(1rem, 2.2vw, 1.55rem); font-weight:700;
+      color:#FFFFFF !important; margin-bottom:.5rem;
+      transform:translateY(9px); transition:all .38s ease .04s;
+    }
+    .w-desc {
+      font-size:.85rem; color:rgba(255,255,255,.85) !important; line-height:1.55;
+      max-width:420px; margin-bottom:1rem;
+      opacity:0; transform:translateY(9px); transition:all .38s ease .08s;
+    }
+    .w-foot {
+      display:flex; justify-content:space-between; align-items:center;
+    }
+    .w-year { font-family:var(--f-head); font-size:.57rem; color:rgba(255,255,255,.6) !important; }
+    .w-link {
+      display:inline-flex; align-items:center; gap:7px;
+      font-family:var(--f-head); font-size:.57rem; letter-spacing:.15em;
+      text-transform:uppercase; color:var(--accent);
+      opacity:0; transform:translateY(9px);
+      transition:all .38s ease .12s;
+      /* pill shape so rings look like an ellipse capsule */
+      position:relative;
+      padding:6px 14px;
+      border:1px solid rgba(33,158,188,.55);
+      border-radius:50px;
+    }
+    .w-link .arr { transition:transform .3s ease; }
+    .w-link:hover .arr { transform:translateX(5px); }
+
+    /* Pulse rings — invisible by default, activate on card hover */
+    .w-link::before,
+    .w-link::after {
+      content:'';
+      position:absolute;
+      border-radius:50px;
+      border:1.5px solid var(--accent);
+      opacity:0;
+      pointer-events:none;
+    }
+
+    /* Inner ring */
+    .work-card:hover .w-link::before {
+      inset:-5px;
+      animation:wPulse 1.8s ease-out infinite;
+    }
+
+    /* Outer ring — starts slightly delayed for layered effect */
+    .work-card:hover .w-link::after {
+      inset:-10px;
+      animation:wPulse 1.8s ease-out infinite .55s;
+    }
+
+    @keyframes wPulse {
+      0%   { transform:scale(1);    opacity:.65; }
+      100% { transform:scale(1.35); opacity:0;   }
+    }
+    
+    .work-card:hover .w-link {
+      border-color:var(--accent);
+      box-shadow:0 0 14px rgba(33,158,188,.45),
+        inset 0 0 10px rgba(33,158,188,.08);
+      color:var(--accent);
+    }
+
+    .work-card:hover .w-cat,
+    .work-card:hover .w-desc,
+    .work-card:hover .w-link  { opacity:1; transform:translateY(0); }
+    .work-card:hover .w-title { transform:translateY(0); }
+
+    /* ════════════════════════════════════════════════════════
+       SERVICES SECTION
+    ════════════════════════════════════════════════════════ */
+    #services { background:var(--bg-alt); }
+
+    .svc-grid {
+      display:grid; grid-template-columns:repeat(3,1fr); gap:2px;
+    }
+
+    /*
+    ╔══════════════════════════════════════════════════════╗
+    ║  HOW TO EDIT SERVICES                               ║
+    ║  - Change icon (emoji or any character)             ║
+    ║  - Change title and description                     ║
+    ║  - Change tool tags                                 ║
+    ║  - Copy/paste .svc-card to add new services         ║
+    ║  - Delete .svc-card to remove                       ║
+    ╚══════════════════════════════════════════════════════╝
+    */
+
+    .svc-card {
+      background:var(--bg-card); padding:2.6rem;
+      position:relative; overflow:hidden;
+      border:1px solid transparent;
+      transition:transform .35s ease, box-shadow .35s ease,
+                  border-color .35s ease, background .35s ease;
+    }
+    .svc-card::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:2px;
+      background:linear-gradient(90deg, var(--accent), var(--highlight));
+      transform:scaleX(0); transform-origin:left; transition:transform .4s ease;
+    }
+    .svc-card:hover {
+      border-color:var(--border); transform:translateY(-7px);
+      box-shadow:var(--shadow-card);
+      background:linear-gradient(135deg, var(--bg-card) 0%, rgba(33,158,188,.04) 100%);
+    }
+    .svc-card:hover::before { transform:scaleX(1); }
+
+    .svc-icon {
+      font-size:1.9rem; display:block; margin-bottom:1.4rem;
+      transition:transform .4s var(--ease-spring);
+    }
+    .svc-card:hover .svc-icon { transform:scale(1.18) rotate(-6deg); }
+
+    .svc-num {
+      font-family:var(--f-head); font-size:.52rem; letter-spacing:.2em;
+      color:var(--text-3); margin-bottom:.9rem;
+    }
+    .svc-title {
+      font-family:var(--f-head); font-size:1rem; font-weight:700;
+      color:var(--text-1); margin-bottom:.75rem; letter-spacing:-.01em;
+    }
+    .svc-desc {
+      font-size:.875rem; color:var(--text-2); line-height:1.72; margin-bottom:1.4rem;
+    }
+    .svc-tags { display:flex; flex-wrap:wrap; gap:6px; }
+    .svc-tag {
+      font-family:var(--f-head); font-size:.5rem;
+      letter-spacing:.1em; text-transform:uppercase;
+      padding:4px 10px; border:1px solid var(--border); border-radius:2px;
+      color:var(--text-3); transition:all .3s ease;
+    }
+    .svc-card:hover .svc-tag { border-color:rgba(33,158,188,.3); color:var(--accent); }
+
+    /* ════════════════════════════════════════════════════════
+       TOOLS / SKILLS SECTION
+    ════════════════════════════════════════════════════════ */
+    #tools { background:var(--bg-base); }
+
+    .tools-grid {
+      display:grid; grid-template-columns:repeat(auto-fill, minmax(130px,1fr));
+      gap:2px; margin-top:3rem;
+    }
+
+    /*
+    ╔══════════════════════════════════════════════════════╗
+    ║  HOW TO EDIT TOOLS                                  ║
+    ║  - Change the emoji inside .tool-icon               ║
+    ║  - Change the text inside .tool-name                ║
+    ║  - Copy/paste .tool-card to add more tools          ║
+    ║  - Delete .tool-card to remove                      ║
+    ╚══════════════════════════════════════════════════════╝
+    */
+
+    .tool-card {
+      background:var(--bg-card); padding:1.9rem 1rem;
+      display:flex; flex-direction:column;
+      align-items:center; justify-content:flex-start;
+      gap:.75rem; text-align:center;
+      border:1px solid transparent;
+      transition:all .35s ease; cursor:default;
+      min-height:130px;
+    }
+    .tool-card:hover {
+      border-color:var(--border); transform:translateY(-4px);
+      background:linear-gradient(135deg, var(--bg-card) 0%, rgba(33,158,188,.07) 100%);
+    }
+    .tool-icon {
+      width:56px; height:56px;
+      display:flex; align-items:center; justify-content:center;
+      transition:transform .4s var(--ease-spring);
+      flex-shrink:0;
+    }
+    .tool-icon img,
+    .tool-icon svg {
+      width:100%; height:100%;
+      object-fit:contain;
+      display:block;
+    }
+    .tool-card:hover .tool-icon { transform:scale(1.22); }
+    .tool-name {
+      font-family:var(--f-head); font-size:.52rem;
+      letter-spacing:.14em; text-transform:uppercase; color:var(--text-2);
+    }
+
+    /* ════════════════════════════════════════════════════════
+       TESTIMONIALS SECTION
+    ════════════════════════════════════════════════════════ */
+    #testi { background:var(--bg-alt); }
+
+    .testi-grid {
+      display:grid; grid-template-columns:repeat(2,1fr); gap:2px; margin-top:3rem;
+    }
+
+    /*
+    ╔══════════════════════════════════════════════════════╗
+    ║  HOW TO EDIT TESTIMONIALS                           ║
+    ║  - Replace placeholder text with real reviews       ║
+    ║  - Update .t-name (client name)                     ║
+    ║  - Update .t-role (client role or channel)          ║
+    ║  - Update .t-avatar (2–3 letter initials)           ║
+    ║  - Add more .t-card blocks as you get more reviews  ║
+    ╚══════════════════════════════════════════════════════╝
+    */
+
+    .t-card {
+      background:var(--bg-card); padding:2.4rem;
+      position:relative; transition:all .35s ease;
+    }
+    .t-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-card); }
+    .t-stars { position:absolute; top:2rem; right:2rem; color:var(--highlight); font-size:.68rem; letter-spacing:2px; }
+    .t-quote-mark { font-family:var(--f-head); font-size:3.6rem; color:var(--accent); line-height:.5; margin-bottom:1.4rem; opacity:.45; }
+    .t-text { font-size:.93rem; color:var(--text-2); line-height:1.8; margin-bottom:1.5rem; font-style:italic; }
+    .t-author { display:flex; align-items:center; gap:1rem; }
+    .t-avatar {
+      width:42px; height:42px; border-radius:50%; flex-shrink:0;
+      background:var(--accent-glow); border:1px solid var(--border);
+      display:flex; align-items:center; justify-content:center;
+      font-family:var(--f-head); font-size:.68rem; font-weight:700; color:var(--accent);
+    }
+    .t-name { font-family:var(--f-head); font-size:.65rem; font-weight:700; letter-spacing:.05em; color:var(--text-1); }
+    .t-role { font-size:.75rem; color:var(--text-3); margin-top:3px; }
+
+    /* ════════════════════════════════════════════════════════
+       CONTACT SECTION
+    ════════════════════════════════════════════════════════ */
+    #contact { background:var(--bg-base); position:relative; overflow:hidden; }
+
+    .contact-bg-word {
+      position:absolute; font-family:var(--f-head);
+      font-size:clamp(6rem, 16vw, 15rem); font-weight:900;
+      text-transform:uppercase; letter-spacing:-.02em;
+      color:transparent; -webkit-text-stroke:1px var(--border);
+      top:50%; left:50%; transform:translate(-50%,-50%);
+      pointer-events:none; white-space:nowrap; z-index:0; user-select:none;
+    }
+
+    .contact-grid {
+      display:grid; grid-template-columns:1fr 1.1fr;
+      gap:5rem; align-items:start; position:relative; z-index:1;
+    }
+
+    .c-info-list { display:flex; flex-direction:column; gap:1.6rem; margin-top:2rem; }
+    .c-info-item { display:flex; align-items:flex-start; gap:1rem; }
+    .c-icon {
+      width:42px; height:42px; background:var(--accent-glow2);
+      border:1px solid var(--border); border-radius:6px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:1rem; flex-shrink:0; transition:all .3s ease;
+    }
+    .c-info-item:hover .c-icon { background:var(--accent); border-color:var(--accent); }
+    .c-lbl { font-family:var(--f-head); font-size:.52rem; letter-spacing:.15em; text-transform:uppercase; color:var(--text-3); margin-bottom:4px; }
+    .c-val { font-size:.95rem; color:var(--text-2); transition:color .3s ease; }
+    .c-info-item:hover .c-val { color:var(--text-1); }
+
+    /* Social icons */
+    .c-socials { display:flex; gap:.85rem; margin-top:2.4rem; flex-wrap:wrap; }
+    .soc-btn {
+      width:44px; height:44px; border:1px solid var(--border); border-radius:6px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:.95rem; color:var(--text-2); cursor:none; transition:all .3s ease;
+    }
+    .soc-btn:hover {
+      border-color:var(--accent); color:var(--accent);
+      background:var(--accent-glow); transform:translateY(-3px);
+    }
+
+    /* Form */
+    .contact-form { display:flex; flex-direction:column; gap:1.2rem; }
+    .f-lbl { font-family:var(--f-head); font-size:.57rem; letter-spacing:.15em; text-transform:uppercase; color:var(--text-3); margin-bottom:7px; display:block; }
+    .f-input, .f-textarea, .f-select {
+      width:100%; background:var(--bg-card); border:1px solid var(--border);
+      border-radius:var(--radius); padding:14px 18px;
+      font-family:var(--f-body); font-size:.92rem; color:var(--text-1);
+      transition:all .3s ease; outline:none; -webkit-appearance:none;
+    }
+    .f-input::placeholder, .f-textarea::placeholder { color:var(--text-3); }
+    .f-input:focus, .f-textarea:focus, .f-select:focus {
+      border-color:var(--accent); background:rgba(33,158,188,.04);
+      box-shadow:0 0 0 3px var(--accent-glow);
+    }
+    .f-select option { background:var(--bg-alt); color:var(--text-1); }
+    .f-textarea { resize:vertical; min-height:140px; }
+    .f-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+
+    .f-submit {
+      display:inline-flex; align-items:center; gap:10px;
+      align-self:flex-start; background:var(--accent); color:var(--bg-base);
+      border:none; padding:16px 38px; border-radius:var(--radius);
+      font-family:var(--f-head); font-size:.68rem; font-weight:700;
+      letter-spacing:.14em; text-transform:uppercase; cursor:none;
+      transition:all .35s ease;
+    }
+    .f-submit:hover { background:var(--highlight); transform:translateY(-3px); box-shadow:0 18px 44px rgba(255,183,3,.28); }
+    #f-status { font-size:.8rem; color:var(--accent); margin-top:.5rem; display:none; }
+
+    /* ════════════════════════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════════════════════════ */
+    footer {
+      background:var(--bg-alt); border-top:1px solid var(--border);
+      padding:2.8rem 5%;
+    }
+    .foot-inner {
+      max-width:var(--max-w); margin:0 auto;
+      display:flex; justify-content:space-between; align-items:center;
+      flex-wrap:wrap; gap:1.5rem;
+    }
+    .foot-logo { font-family:var(--f-head); font-size:.95rem; font-weight:900; letter-spacing:.04em; }
+    .foot-logo span { color:var(--accent); }
+    .foot-tag { font-size:.75rem; color:var(--text-3); margin-top:4px; }
+    .foot-copy { font-size:.75rem; color:var(--text-3); text-align:center; }
+    .foot-top {
+      display:flex; align-items:center; gap:8px;
+      font-family:var(--f-head); font-size:.57rem; letter-spacing:.14em;
+      text-transform:uppercase; color:var(--text-2);
+      background:none; border:1px solid var(--border); border-radius:var(--radius);
+      padding:10px 18px; cursor:none; transition:all .3s ease;
+    }
+    .foot-top:hover { border-color:var(--accent); color:var(--accent); transform:translateY(-3px); }
+
+    /* ════════════════════════════════════════════════════════
+       RESPONSIVE
+    ════════════════════════════════════════════════════════ */
+    @media(max-width:1024px) {
+      .about-grid { grid-template-columns:1fr; gap:3.5rem; }
+      .about-img-wrap { max-width:380px; margin:0 auto; }
+      .about-badge { right:0; }
+      .svc-grid { grid-template-columns:repeat(2,1fr); }
+      .contact-grid { grid-template-columns:1fr; gap:3rem; }
+    }
+
+    @media(max-width:768px) {
+      :root { --pad-sec:72px; }
+      .hero-inner { padding:calc(var(--nav-h) + 55px) 5% 110px; }
+      .hero-stats { flex-wrap:wrap; gap:1.5rem 2.5rem; justify-content:flex-start; }
+      .scroll-ind { display:none; }
+      .nav-links, .nav-hire { display:none; }
+      nav .theme-btn { display:none; }
+      .ham { display:flex; }
+      .work-grid { grid-template-columns:1fr; }
+      .work-card.featured { grid-column:span 1; }
+      .work-card.featured .work-thumb-ph,
+      .work-card.featured .work-thumb-img { aspect-ratio:16/9; }
+      .svc-grid { grid-template-columns:1fr; }
+      .testi-grid { grid-template-columns:1fr; }
+      .f-row { grid-template-columns:1fr; }
+      .skills-grid { grid-template-columns:1fr; }
+      .hero-stats { gap:2rem; }
+      #cur-ring, #cur-dot { display:none; }
+      body { cursor:auto; }
+      .foot-inner { flex-direction:column; text-align:center; }
+      .foot-top { align-self:center; }
+    }
+
+    @media(max-width:480px) {
+      .hero-btns { flex-direction:column; }
+      .btn-prim, .btn-sec { width:100%; justify-content:center; }
+      .tools-grid { grid-template-columns:repeat(3,1fr); }
+    }
+
+    /* ════════════════════════════════════════════════════════
+       ██████  ORBIT / SOLAR-SYSTEM ANIMATION  ██████
+    ════════════════════════════════════════════════════════ */
+    .orbit-sys {
+      position:relative;
+      width:560px; height:560px;
+      flex-shrink:0;
+    }
+
+    /* ── Center Hub ── */
+    .o-hub {
+      position:absolute; top:50%; left:50%;
+      transform:translate(-50%,-50%);
+      width:76px; height:76px; border-radius:50%;
+      background:radial-gradient(circle,rgba(33,158,188,.35) 0%,rgba(33,158,188,.08) 100%);
+      border:2px solid var(--accent);
+      display:flex; align-items:center; justify-content:center;
+      font-size:2.1rem; z-index:10;
+      box-shadow:0 0 28px rgba(33,158,188,.45), 0 0 70px rgba(33,158,188,.15);
+      animation:hubGlow 3s ease-in-out infinite;
+    }
+    [data-theme="light"] .o-hub {
+      background:radial-gradient(circle,rgba(12,127,160,.2) 0%,rgba(12,127,160,.04) 100%);
+      box-shadow:0 0 20px rgba(12,127,160,.3);
+    }
+    @keyframes hubGlow {
+      0%,100%{box-shadow:0 0 28px rgba(33,158,188,.45),0 0 70px rgba(33,158,188,.15)}
+      50%    {box-shadow:0 0 50px rgba(33,158,188,.7),0 0 110px rgba(33,158,188,.28)}
+    }
+
+    /* ── Orbit Rings ── */
+    .o-ring {
+      position:absolute; top:50%; left:50%;
+      border-radius:50%;
+      border:1px dashed rgba(33,158,188,.18);
+    }
+    [data-theme="light"] .o-ring { border-color:rgba(12,127,160,.22); }
+
+    .o-ring-1 {
+      width:220px; height:220px;
+      margin:-110px 0 0 -110px;
+      border-color:rgba(33,158,188,.38);
+      animation:oCW 15s linear infinite;
+    }
+    .o-ring-2 {
+      width:390px; height:390px;
+      margin:-195px 0 0 -195px;
+      border-color:rgba(33,158,188,.22);
+      animation:oCCW 23s linear infinite;
+    }
+    .o-ring-3 {
+      width:550px; height:550px;
+      margin:-275px 0 0 -275px;
+      border-color:rgba(33,158,188,.10);
+      animation:oCW 36s linear infinite;
+    }
+    @keyframes oCW  { to{transform:rotate( 360deg)} }
+    @keyframes oCCW { to{transform:rotate(-360deg)} }
+
+    /* ── Icon Nodes ── */
+    .o-node {
+  position:absolute;
+  top:50%; left:50%;
+  width:44px; height:44px;
+  margin:-22px 0 0 -22px;
+  border-radius:50%;
+  background:var(--bg-card);
+  border:1.5px solid var(--border);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.15rem;
+  transition:border-color .3s ease, box-shadow .3s ease;
+}
+.o-node:hover {
+  border-color:var(--accent);
+  box-shadow:0 0 18px var(--accent-glow);
+  z-index:20;
+}
+.o-node::after {
+  content:attr(data-name);
+  position:absolute;
+  top:calc(100% + 8px); left:50%;
+  transform:translateX(-50%);
+  background:var(--bg-card); border:1px solid var(--border);
+  border-radius:4px; padding:3px 9px;
+  font-family:var(--f-head); font-size:.46rem;
+  letter-spacing:.1em; text-transform:uppercase;
+  color:var(--accent); white-space:nowrap;
+  opacity:0; pointer-events:none;
+  transition:opacity .25s ease; z-index:30;
+}
+.o-node:hover::after { opacity:1; }
+
+/* ── Independent orbit animations (correct technique) ── */
+
+/* Ring 1 keyframe — CW, R=110px */
+@keyframes orb-r1 {
+  from { transform: rotate(0deg)   translateY(-110px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateY(-110px) rotate(-360deg); }
+}
+/* Ring 2 keyframe — CCW, R=195px */
+@keyframes orb-r2 {
+  from { transform: rotate(0deg)    translateY(-195px) rotate(0deg); }
+  to   { transform: rotate(-360deg) translateY(-195px) rotate(360deg); }
+}
+/* Ring 3 keyframe — CW, R=275px */
+@keyframes orb-r3 {
+  from { transform: rotate(0deg)   translateY(-275px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateY(-275px) rotate(-360deg); }
+}
+
+/* Ring 1 — 3 icons, 15s, spaced 120° apart */
+.r1n1{animation:orb-r1 15s linear infinite;animation-delay:0s}
+.r1n2{animation:orb-r1 15s linear infinite;animation-delay:-5s}
+.r1n3{animation:orb-r1 15s linear infinite;animation-delay:-10s}
+
+/* Ring 2 — 4 icons, 23s, spaced 90° apart */
+.r2n1{animation:orb-r2 23s linear infinite;animation-delay:0s}
+.r2n2{animation:orb-r2 23s linear infinite;animation-delay:-5.75s}
+.r2n3{animation:orb-r2 23s linear infinite;animation-delay:-11.5s}
+.r2n4{animation:orb-r2 23s linear infinite;animation-delay:-17.25s}
+
+/* Ring 3 — 5 icons, 36s, spaced 72° apart */
+.r3n1{animation:orb-r3 36s linear infinite;animation-delay:0s}
+.r3n2{animation:orb-r3 36s linear infinite;animation-delay:-7.2s}
+.r3n3{animation:orb-r3 36s linear infinite;animation-delay:-14.4s}
+.r3n4{animation:orb-r3 36s linear infinite;animation-delay:-21.6s}
+.r3n5{animation:orb-r3 36s linear infinite;animation-delay:-28.8s}
+
+/* Mobile scaled radii */
+@media(max-width:1024px){
+  @keyframes orb-r1 {
+    from { transform: rotate(0deg)   translateY(-60px) rotate(0deg); }
+    to   { transform: rotate(360deg) translateY(-60px) rotate(-360deg); }
+  }
+  @keyframes orb-r2 {
+    from { transform: rotate(0deg)    translateY(-102px) rotate(0deg); }
+    to   { transform: rotate(-360deg) translateY(-102px) rotate(360deg); }
+  }
+  @keyframes orb-r3 {
+    from { transform: rotate(0deg)   translateY(-145px) rotate(0deg); }
+    to   { transform: rotate(360deg) translateY(-145px) rotate(-360deg); }
+  }
+}
+
+    /* SVG icons inside nodes (if you use real logos) */
+    .o-node img { width:26px; height:26px; object-fit:contain; border-radius:4px; }
+
+    /* Glow dots on rings — decorative */
+    .o-ring::before {
+      content:''; position:absolute;
+      top:-3px; left:50%; margin-left:-3px;
+      width:6px; height:6px; border-radius:50%;
+      background:var(--accent);
+      box-shadow:0 0 8px var(--accent);
+    }
+
+    /* Responsive — hide orbit on tablet/mobile */
+    @media(max-width:1024px){
+      .hero-inner{ grid-template-columns:1fr; }
+      .hero-right{ display:none; }
+    }
+
+    /* ════════════════════════════════════════════════════════
+       ██████  SOCIAL MEDIA ICON BUTTONS (SVG-READY)  ██████
+    ════════════════════════════════════════════════════════ */
+    .soc-btn img,
+    .soc-btn svg {
+      width:20px; height:20px;
+      object-fit:contain;
+      /* In dark mode, make white icons visible */
+      filter:brightness(0) invert(1);
+      opacity:.7;
+      transition:opacity .3s ease, filter .3s ease;
+    }
+    [data-theme="light"] .soc-btn img,
+    [data-theme="light"] .soc-btn svg {
+      filter:brightness(0) invert(0);
+      opacity:.6;
+    }
+    .soc-btn:hover img,
+    .soc-btn:hover svg {
+      opacity:1;
+      filter:none; /* shows original brand color on hover */
+    }
+    /* LinkedIn — dedicated CSS-only hover (no JS involved) */
+    a[title="LinkedIn"] img {
+      filter: brightness(0) invert(1);
+      opacity: .7;
+      transition: filter .3s ease, opacity .3s ease;
+    }
+    a[title="LinkedIn"]:hover img {
+      filter: none;
+      opacity: 1;
+    }
+
+    /* ════════════════════════════════════════════════════════
+       ██████  THUMBNAIL GALLERY SECTION  ██████
+    ════════════════════════════════════════════════════════ */
+    #thumb-gallery {
+      background:var(--bg-alt);
+      display:none; /* hidden by default — opens when "View Gallery" is clicked */
+    }
+    #thumb-gallery.open { display:block; }
+
+    .tg-header {
+      display:flex; justify-content:space-between; align-items:center;
+      flex-wrap:wrap; gap:1rem; margin-bottom:2.5rem;
+    }
+    .tg-close {
+      background:none; border:1px solid var(--border);
+      color:var(--text-2); padding:9px 20px; border-radius:var(--radius);
+      font-family:var(--f-head); font-size:.6rem; letter-spacing:.12em;
+      text-transform:uppercase; cursor:none; transition:all .3s ease;
+    }
+    .tg-close:hover {
+      border-color:var(--cta); color:var(--cta);
+    }
+
+    /* Masonry-style thumbnail grid */
+    .tg-grid {
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:4px;
+    }
+    .tg-item {
+      position:relative; overflow:hidden;
+      border-radius:4px; cursor:none;
+      aspect-ratio:16/9;
+      background:var(--bg-card);
+    }
+    .tg-item img {
+      width:100%; height:100%; object-fit:cover; display:block;
+      transition:transform .6s var(--ease);
+    }
+    .tg-item-ph {
+      width:100%; height:100%;
+      background:linear-gradient(145deg,var(--bg-card),rgba(33,158,188,.08));
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.6rem;
+      transition:transform .6s var(--ease);
+    }
+    .tg-item:hover img,
+    .tg-item:hover .tg-item-ph { transform:scale(1.06); }
+
+    .tg-overlay {
+      position:absolute; inset:0;
+      background:linear-gradient(to top,rgba(6,15,24,.9) 0%,transparent 60%);
+      opacity:0; transition:opacity .35s ease;
+      display:flex; align-items:flex-end; padding:1rem;
+    }
+    .tg-item:hover .tg-overlay { opacity:1; }
+    .tg-caption {
+      font-family:var(--f-head); font-size:.55rem;
+      letter-spacing:.12em; text-transform:uppercase; color:var(--text-1);
+    }
+
+    @media(max-width:768px){ .tg-grid{ grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:480px){ .tg-grid{ grid-template-columns:1fr; } }
+
+    /* ════════════════════════════════════════════════════════
+       ██████  VERTICAL VIDEO (REELS / SHORTS) CARD  ██████
+    ════════════════════════════════════════════════════════ */
+    .work-card.vertical {
+      /* Narrower card — sits in the grid but shows portrait video */
+    }
+    .phone-frame {
+      width:100%;
+      aspect-ratio:16/9;        /* card stays horizontal in grid */
+      background:var(--bg-card);
+      display:flex; align-items:center; justify-content:center;
+      gap:1.5rem;
+      padding:1.2rem;
+      overflow:hidden;
+      position:relative;
+    }
+    /* The actual phone mockup */
+    .phone-mock {
+      position:relative;
+      width:auto; height:100%;
+      max-height:180px;
+      aspect-ratio:9/18;        /* portrait 9:18 ratio */
+      border-radius:18px;
+      border:2px solid rgba(33,158,188,.5);
+      background:var(--bg-base);
+      overflow:hidden;
+      box-shadow:0 0 24px rgba(33,158,188,.2);
+      flex-shrink:0;
+    }
+    .phone-mock::before {
+      /* notch */
+      content:''; position:absolute;
+      top:6px; left:50%; transform:translateX(-50%);
+      width:30px; height:4px; border-radius:2px;
+      background:rgba(33,158,188,.4); z-index:2;
+    }
+    .phone-screen {
+      width:100%; height:100%;
+      object-fit:cover; display:block;
+    }
+    .phone-screen-ph {
+      width:100%; height:100%;
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.5rem;
+      background:linear-gradient(180deg,#023047,#060f18);
+    }
+    .phone-info {
+      flex:1; padding:.5rem 0;
+    }
+    .phone-tag {
+      font-family:var(--f-head); font-size:.5rem;
+      letter-spacing:.2em; text-transform:uppercase; color:var(--accent);
+      margin-bottom:.6rem; display:block;
+    }
+    .phone-title {
+      font-family:var(--f-head); font-size:.85rem; font-weight:700;
+      color:var(--text-1); margin-bottom:.5rem; line-height:1.3;
+    }
+    .phone-desc {
+      font-size:.78rem; color:var(--text-2); line-height:1.55;
+      margin-bottom:.8rem;
+    }
+    .phone-link {
+      display:inline-flex; align-items:center; gap:6px;
+      font-family:var(--f-head); font-size:.55rem; letter-spacing:.12em;
+      text-transform:uppercase; color:var(--accent);
+      transition:gap .3s ease;
+      position:relative;
+      padding:4px 10px;
+      border-radius:50px;
+    }
+    .phone-link::before {
+      content:'';
+      position:absolute; inset:-4px;
+      border-radius:50px;
+      border:1.5px solid var(--accent);
+      opacity:0;
+      pointer-events:none;
+    }
+    .work-card:hover .phone-link::before {
+      animation:wPulse 1.8s ease-out infinite;
+    }
+    .phone-link:hover { gap:10px; }
+
+    /* ════════════════════════════════════════════════════════
+       ██████  TESTIMONIAL CIRCULAR PHOTO  ██████
+    ════════════════════════════════════════════════════════ */
+    .t-avatar img {
+      width:42px; height:42px;
+      border-radius:50%;
+      object-fit:cover;
+      border:2px solid var(--accent);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════
+     SCROLL PROGRESS BAR
+════════════════════════════════════════════════════════ -->
+<div id="progress-bar"></div>
+
+<!-- ════════════════════════════════════════════════════════
+     CUSTOM CURSOR (desktop only)
+════════════════════════════════════════════════════════ -->
+<div id="cur-ring"></div>
+<div id="cur-dot"></div>
+
+<!-- ════════════════════════════════════════════════════════
+
+     ██████  NAVBAR  ██████
+
+     HOW TO EDIT NAV:
+     ▸ Change "WAQAR AHMAD" logo text as you like
+     ▸ Add/remove nav links (keep href matching section IDs)
+     ▸ Update "Hire Me" href with your email
+════════════════════════════════════════════════════════ -->
+<nav id="navbar">
+  <a href="#home" class="nav-logo">WAQAR AHMAD</a>
+
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <button class="theme-btn" id="theme-btn" aria-label="Toggle theme">
+      <span id="theme-icon">☀️</span>
+      <span id="theme-lbl">Light</span>
+    </button>
+    <!-- ▸ UPDATE YOUR EMAIL BELOW -->
+    <a href="mailto:waqar55754187@gmail.com" class="nav-hire">Hire Me ↗</a>
+  </div>
+
+  <button class="ham" id="ham" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Drawer -->
+<div class="mob-menu" id="mob-menu">
+  <a href="#home"     class="mob-link">Home</a>
+  <a href="#about"    class="mob-link">About</a>
+  <a href="#work"     class="mob-link">Work</a>
+  <a href="#services" class="mob-link">Services</a>
+  <a href="#tools"    class="mob-link">Tools</a>
+  <a href="#contact"  class="mob-link">Contact</a>
+  <a href="mailto:waqar55754187@gmail.com"
+     class="mob-link"
+     style="color:var(--bg-base);background:var(--accent);padding:12px 32px;border-radius:6px;font-size:.85rem;">
+     ✉ Hire Me
+  </a>
+  <button class="theme-btn" id="mob-theme-btn"
+  style="border-color:var(--accent);color:var(--accent);padding:10px 24px;font-size:.7rem;">
+    <span id="mob-theme-icon">☀️</span>
+    <span id="mob-theme-lbl">Light Mode</span>
+  </button>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════
+
+     ██████  HERO SECTION  ██████
+
+     HOW TO EDIT HERO:
+     ▸ Change your name in .hero-title
+     ▸ Edit the punchy quote inside .hero-quote
+     ▸ Update stats numbers (3+, 50+, etc.)
+     ▸ Change button hrefs
+════════════════════════════════════════════════════════ -->
+<section id="home">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-noise"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <div class="hero-inner">
+
+    <!-- ═══ LEFT COLUMN — Text Content ═══ -->
+    <div class="hero-left">
+
+    <div class="avail-badge">
+      <span class="avail-dot"></span>
+      Available for new projects
+    </div>
+
+    <div class="hero-eyebrow">
+      <span class="pip"></span>
+      Video Editor &amp; Motion Designer — Faisalabad, PK
+    </div>
+
+    <!-- ▸ YOUR NAME — edit freely -->
+    <h1 class="hero-title">
+      <span class="hero-title-line">
+        <span class="hero-title-word d1">WAQAR</span>
+      </span>
+      <span class="hero-title-line">
+        <span class="hero-title-word d2">AH<span class="ac">MAD</span></span>
+      </span>
+    </h1>
+
+    <!-- ▸ PUNCHY QUOTE — change this anytime -->
+    <p class="hero-quote">
+      Raw footage is <em>nothing</em>.<br>
+      The edit is <em>everything</em>.
+    </p>
+
+    <div class="hero-role">
+      <span id="typewriter">Video Editor</span>
+    </div>
+
+    <div class="hero-btns">
+      <a href="#work" class="btn-prim">▶ View My Work</a>
+      <!-- ▸ UPDATE YOUR EMAIL -->
+      <a href="mailto:waqar55754187@gmail.com" class="btn-sec">✉ Let's Collaborate</a>
+    </div>
+
+    <!-- ▸ UPDATE THESE STATS AS YOUR CAREER GROWS -->
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">3<span>+</span></div>
+        <div class="stat-lbl">Years Experience</div>
+      </div>
+      <div>
+        <div class="stat-num">50<span>+</span></div>
+        <div class="stat-lbl">Projects Delivered</div>
+      </div>
+      <div>
+        <div class="stat-num">95<span>%</span></div>
+        <div class="stat-lbl">Client Satisfaction</div>
+      </div>
+      <div>
+        <div class="stat-num" style="color:var(--highlight)">∞</div>
+        <div class="stat-lbl">Creative Ideas</div>
+      </div>
+    </div>
+
+    </div><!-- /hero-left -->
+
+    <!-- ═══ RIGHT COLUMN — Solar System Orbit Animation ═══ -->
+    <!--
+    ╔═══════════════════════════════════════════════════════╗
+    ║  HOW TO REPLACE EMOJI WITH REAL SOFTWARE LOGOS       ║
+    ║                                                       ║
+    ║  Each .o-node has an emoji inside. To swap it:       ║
+    ║  1. Delete the emoji text                             ║
+    ║  2. Add: <img src="images/premiere-pro.svg"          ║
+    ║               alt="Premiere Pro">                    ║
+    ║                                                       ║
+    ║  Free SVG logos: simpleicons.org                      ║
+    ║  (search software name → download SVG)               ║
+    ║                                                       ║
+    ║  data-name="..." = tooltip text on hover             ║
+    ╚═══════════════════════════════════════════════════════╝
+    -->
+    <div class="hero-right">
+      <div class="orbit-sys">
+
+        <!-- ── Center Hub — your identity icon ── -->
+        <!-- ▸ Change the emoji to anything you like -->
+        <div class="o-hub" title="VOT STUDIO"><a href="https://www.youtube.com/@VarietiesofTech" target="_blank"><img src="images/pro.png" alt="VOT STUDDIO"></a></div>
+
+        <!-- Decorative rings — empty, just the rotating circle border -->
+        <div class="o-ring o-ring-1"></div>
+        <div class="o-ring o-ring-2"></div>
+        <div class="o-ring o-ring-3"></div>
+
+        <!-- Ring 1 icons — class r1n1, r1n2, r1n3 -->
+        <div class="o-node r1n1" data-name="Premiere Pro"><img src="images/premierepro.svg" alt="Premiere Pro"></div>
+        <div class="o-node r1n2" data-name="After Effects"><img src="images/aftereffects.svg" alt="After Effects"></div>
+        <div class="o-node r1n3" data-name="Capcut"><img src="images/capcut.svg" alt="Capcut"></div>
+
+        <!-- Ring 2 icons — class r2n1, r2n2, r2n3, r2n4 -->
+        <div class="o-node r2n1" data-name="Microsoft"><img src="images/microsoft.svg" alt="Microsoft"></div>
+        <div class="o-node r2n2" data-name="Claude Ai"><img src="images/claude.svg" alt="Claude Ai"></div>
+        <div class="o-node r2n3" data-name="Canva Design"><img src="Images/canva.svg" alt="Canva Design"></div>
+        <div class="o-node r2n4" data-name="Figma"><img src="Images/figma.svg" alt="Figma"></div>
+
+        <!-- Ring 3 icons — class r3n1, r3n2, r3n3, r3n4, r3n5 -->
+        <div class="o-node r3n1" data-name="Python"><img src="Images/python.svg" alt="Python"></div>
+        <div class="o-node r3n2" data-name="Github"><img src="Images/github.svg" alt="Github"></div>
+        <div class="o-node r3n3" data-name="Android Apps"><img src="Images/android.svg" alt="Android"></div>
+        <div class="o-node r3n4" data-name="YT Studio"><img src="Images/youtubestudio.svg" alt="YT Studio"></div>
+        <div class="o-node r3n5" data-name="HTML / CSS"><img src="Images/globe.svg" alt="HTML / CSS"></div>
+
+      </div><!-- /orbit-sys -->
+    </div><!-- /hero-right -->
+
+  </div>
+
+  <div class="scroll-ind">
+    <div class="scroll-ind-line"></div>
+    <span class="scroll-ind-txt">Scroll</span>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     MARQUEE TICKER
+════════════════════════════════════════════════════════ -->
+<div class="ticker">
+  <div class="ticker-track">
+    <!-- Duplicated for seamless loop -->
+    <span class="tick-item">Video Editing<span class="tick-sep">✦</span></span>
+    <span class="tick-item">Color Grading<span class="tick-sep">✦</span></span>
+    <span class="tick-item">Motion Graphics<span class="tick-sep">✦</span></span>
+    <span class="tick-item">3D Animation<span class="tick-sep">✦</span></span>
+    <span class="tick-item">Thumbnail Design<span class="tick-sep">✦</span></span>
+    <span class="tick-item">YouTube Production<span class="tick-sep">✦</span></span>
+    <span class="tick-item">Visual Storytelling<span class="tick-sep">✦</span></span>
+    <span class="tick-item">Post-Production<span class="tick-sep">✦</span></span>
+    <span class="tick-item">Video Editing<span class="tick-sep">✦</span></span>
+    <span class="tick-item">Color Grading<span class="tick-sep">✦</span></span>
+    <span class="tick-item">Motion Graphics<span class="tick-sep">✦</span></span>
+    <span class="tick-item">3D Animation<span class="tick-sep">✦</span></span>
+    <span class="tick-item">Thumbnail Design<span class="tick-sep">✦</span></span>
+    <span class="tick-item">YouTube Production<span class="tick-sep">✦</span></span>
+    <span class="tick-item">Visual Storytelling<span class="tick-sep">✦</span></span>
+    <span class="tick-item">Post-Production<span class="tick-sep">✦</span></span>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════
+
+     ██████  ABOUT SECTION  ██████
+
+     HOW TO EDIT:
+     ▸ Replace .about-placeholder with your real photo
+       (see instructions in the HTML comment below)
+     ▸ Edit the paragraph text about yourself
+     ▸ Adjust skill percentages: change the number in
+       data-fill="XX" AND the matching text "XX%"
+     ▸ Update "Download Resume" href with your file link
+════════════════════════════════════════════════════════ -->
+<section id="about" class="sec">
+  <div class="sec-inner">
+    <div class="about-grid">
+
+      <!-- LEFT: Photo -->
+      <div class="about-img-wrap rev">
+        <div class="about-line-v"></div>
+        <div class="about-line-h"></div>
+        <div class="about-img-inner">
+          <!--
+          ╔══════════════════════════════════════════════╗
+          ║  ADD YOUR PHOTO HERE                        ║
+          ║  Step 1: Delete the div.about-placeholder   ║
+          ║  Step 2: Paste this in its place:           ║
+          ║    <img src="waqar.jpg"                     ║
+          ║         alt="Waqar Ahmad"                   ║
+          ║         class="about-photo">                ║
+          ║  Step 3: Save your photo in the same folder ║
+          ║          as this HTML file                  ║
+          ╚══════════════════════════════════════════════╝
+          -->
+         <img src="images/waqar.png" alt="Waqar Ahmad" class="about-photo">
+        </div>
+        <div class="about-badge">
+          <span class="ab-num">3+</span>
+          <span class="ab-lbl">Years of<br>Mastery</span>
+        </div>
+      </div>
+
+      <!-- RIGHT: Text -->
+      <div class="about-body">
+        <div class="sec-eyebrow rev">About Me</div>
+        <h2 class="sec-title rev r1">From Concept<br>to <em>Creation</em></h2>
+
+        <!-- ▸ UPDATE YOUR BIO PARAGRAPHS HERE -->
+        <p class="rev r2">
+          I'm <strong>Waqar Ahmad</strong>, a Video Editor and Motion Designer
+          from <strong>Faisalabad, Pakistan</strong> — with 3+ years of hands-on
+          experience turning raw footage into cinematic stories that move people.
+        </p>
+        <p class="rev r3">
+          My craft spans video editing, color grading, motion graphics, 3D animation,
+          and visual effects. I specialize in YouTube content, commercial edits,
+          social media reels, and anything that deserves to <strong>look world-class</strong>.
+        </p>
+        <p class="rev r4">
+          I'm also a Computer Engineering student at <strong>NTU Faisalabad</strong>,
+          which gives me a technical edge — I think in systems, build smart workflows,
+          and bring both creative instinct and technical precision to every project.
+        </p>
+
+        <!-- ▸ SKILL BARS — change data-fill="XX" to the % you want (0-100) -->
+        <div class="skills-grid rev r5" id="skills-bars">
+          <div class="skill-item">
+            <div class="skill-hd"><span>Video Editing</span><span class="pct">95%</span></div>
+            <div class="skill-track"><div class="skill-fill" data-fill="95"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-hd"><span>Color Grading</span><span class="pct">88%</span></div>
+            <div class="skill-track"><div class="skill-fill" data-fill="88"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-hd"><span>Motion Graphics</span><span class="pct">82%</span></div>
+            <div class="skill-track"><div class="skill-fill" data-fill="82"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-hd"><span>3D Animation</span><span class="pct">75%</span></div>
+            <div class="skill-track"><div class="skill-fill" data-fill="75"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-hd"><span>Thumbnail Design</span><span class="pct">90%</span></div>
+            <div class="skill-track"><div class="skill-fill" data-fill="90"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-hd"><span>Web Dev</span><span class="pct">65%</span></div>
+            <div class="skill-track"><div class="skill-fill" data-fill="65"></div></div>
+          </div>
+        </div>
+
+        <div class="about-cta rev r6">
+          <!-- ▸ UPDATE href to your Google Drive resume link or local file path -->
+          <a href="waqar-ahmad-resume.pdf" class="btn-prim" download>↓ Download Resume</a>
+          <a href="#contact" class="btn-sec">✉ Contact Me</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ════════════════════════════════════════════════════════
+
+     ██████  WORK / PORTFOLIO SECTION  ██████
+
+     ╔══════════════════════════════════════════════════════╗
+     ║  HOW TO ADD A NEW PROJECT                          ║
+     ║                                                    ║
+     ║  Copy this block and paste inside #work-grid:      ║
+     ║                                                    ║
+     ║  <div class="work-card rev" data-category="editing">
+     ║    <div class="work-thumb-ph"                      ║
+     ║      style="background:linear-gradient(...)">      ║
+     ║      <div class="play-btn">▶</div>                 ║
+     ║    </div>                                          ║
+     ║    <div class="work-overlay">                      ║
+     ║      <span class="w-cat">✦ CATEGORY</span>        ║
+     ║      <h3 class="w-title">Project Name</h3>        ║
+     ║      <p class="w-desc">Short description.</p>     ║
+     ║      <div class="w-foot">                         ║
+     ║        <span class="w-year">2024</span>           ║
+     ║        <a href="YOUTUBE_URL" target="_blank"       ║
+     ║           class="w-link">Watch<span class="arr">→</span></a>
+     ║      </div>                                        ║
+     ║    </div>                                          ║
+     ║  </div>                                            ║
+     ║                                                    ║
+     ║  data-category: "editing" "motion" "thumbnail" "web"
+     ║                                                    ║
+     ║  TO USE A REAL THUMBNAIL:                          ║
+     ║  Replace div.work-thumb-ph with:                   ║
+     ║    <img src="thumb.jpg" class="work-thumb-img">    ║
+     ║                                                    ║
+     ║  HOW TO REMOVE: Delete the entire .work-card block ║
+     ╚══════════════════════════════════════════════════════╝
+════════════════════════════════════════════════════════ -->
+<section id="work" class="sec">
+  <div class="sec-inner">
+    <div class="work-top">
+      <div>
+        <div class="sec-eyebrow rev">Selected Work</div>
+        <h2 class="sec-title rev r1">Projects That <em>Speak</em></h2>
+      </div>
+      <a href="#contact" class="btn-sec rev">Start a Project →</a>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="work-filters rev">
+      <button class="flt-btn active" data-filter="all">All Work</button>
+      <button class="flt-btn" data-filter="editing">Video Editing</button>
+      <button class="flt-btn" data-filter="shorts">Reels & Shorts</button>
+      <button class="flt-btn" data-filter="thumbnail">Thumbnails</button>
+      <button class="flt-btn" data-filter="web">Web Dev</button>
+    </div>
+
+    <!-- Work Grid -->
+    <div class="work-grid" id="work-grid">
+
+      <!-- ─── PROJECT 1 — FEATURED (full width) ─── -->
+      <!-- ▸ Change gradient, title, desc, year, and link -->
+      <div class="work-card featured rev" data-category="editing">
+        <img src="images/project01.png" class="work-thumb-img" alt="Project 1 Thumbnail">
+        <div class="work-overlay">
+          <span class="w-cat">✦ Video Editing — Featured</span>
+          <h3 class="w-title">Cinematic Brand Commercial</h3>
+          <p class="w-desc">
+            Full-scale commercial edit with custom motion graphics, Character Design and Animation, 
+            and orchestrated sound design.
+          </p>
+          <div class="w-foot">
+            <span class="w-year">2024</span>
+            <!-- ▸ ADD YOUR YOUTUBE / VIMEO LINK HERE -->
+            <a href="https://www.youtube.com/watch?v=o9a8TyVpXu4" target="_blank" class="w-link">Watch Now <span class="arr">→</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── PROJECT 2 ─── -->
+      <div class="work-card rev r1" data-category="editing">
+        <img src="images/project02.png" class="work-thumb-img" alt="Project 2 Thumbnail">
+        <div class="work-overlay">
+          <span class="w-cat">✦ YouTube Production</span>
+          <h3 class="w-title">Tech Channel Highlights Video</h3>
+          <p class="w-desc">Cinematic highlights video for a tech channel with dynamic pacing and engaging visuals.</p>
+          <div class="w-foot">
+            <span class="w-year">2024</span>
+            <a href="https://www.youtube.com/watch?v=Ke5a4oEJ7FE&t=3s" target="_blank" class="w-link">Watch Now <span class="arr">→</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== PROJECT 4 ====================
+      <div class="work-card rev r2" data-category="shorts">
+        <div class="work-thumb-ph"
+          style="background:linear-gradient(145deg,#040b12 0%,rgba(255,183,3,.12) 55%,#023047 100%);">
+          <div class="play-btn">▶</div>
+        </div>
+        <div class="work-overlay">
+          <span class="w-cat">✦ Reels & Shorts</span>
+          <h3 class="w-title">Channel Intro & Outro Pack</h3>
+          <p class="w-desc">Animated intro/outro set with custom lower thirds for a 100K+ subscriber channel.</p>
+          <div class="w-foot">
+            <span class="w-year">2023</span>
+            <a href="#" target="_blank" class="w-link">Watch Now <span class="arr">→</span></a>
+          </div>
+        </div>
+      </div>
+      ====================================================-->
+
+      <!-- ==================== PROJECT 4 ====================
+      <div class="work-card rev r3" data-category="shorts">
+        <div class="work-thumb-ph"
+          style="background:linear-gradient(145deg,#0d1a22 0%,rgba(33,158,188,.12) 100%);">
+          <div class="play-btn">▶</div>
+        </div>
+        <div class="work-overlay">
+          <span class="w-cat">✦ Reels & Shorts</span>
+          <h3 class="w-title">Social Media Reels Pack</h3>
+          <p class="w-desc">30+ short-form reels edited and color graded for Instagram & YouTube Shorts.</p>
+          <div class="w-foot">
+            <span class="w-year">2024</span>
+            <a href="#" target="_blank" class="w-link">Watch Now <span class="arr">→</span></a>
+          </div>
+        </div>
+      </div>
+      ====================================================-->
+
+      <!-- ─── PROJECT 5 ─── -->
+      <div class="work-card rev r1" data-category="thumbnail">
+        <img src="images/thumb01.png" class="work-thumb-img" alt="Project 5 Thumbnail">
+        <div class="work-overlay">
+          <span class="w-cat">✦ Thumbnail Design</span>
+          <h3 class="w-title">YouTube Thumbnail Series</h3>
+          <p class="w-desc">50+ high-CTR thumbnails that boosted a channel's click-through rate by 40%.</p>
+          <div class="w-foot">
+            <span class="w-year">2024–26</span>
+            <!-- This button opens the full thumbnail gallery below -->
+            <a href="javascript:void(0)" onclick="openGallery()" class="w-link">View Gallery <span class="arr">→</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== PROJECT 6 ==================== 
+      <div class="work-card rev r2" data-category="editing">
+        <div class="work-thumb-ph"
+          style="background:linear-gradient(145deg,#023047 0%,#060f18 100%);">
+          <div class="play-btn">▶</div>
+        </div>
+        <div class="work-overlay">
+          <span class="w-cat">✦ Color Grading</span>
+          <h3 class="w-title">Cinematic Short Film Grade</h3>
+          <p class="w-desc">Full color grade for a 12-minute short film — cinematic teal-orange look.</p>
+          <div class="w-foot">
+            <span class="w-year">2023</span>
+            <a href="#" target="_blank" class="w-link">Watch Now <span class="arr">→</span></a>
+          </div>
+        </div>
+      </div>
+      ====================================================-->
+
+      <!-- ─── PROJECT 7 ─── -->
+      <div class="work-card rev r3" data-category="web">
+        <div class="work-thumb-ph"
+          style="background:linear-gradient(145deg,#091622 0%,rgba(33,158,188,.1) 100%);">
+          <div class="play-btn" style="font-size:1.5rem">💻</div>
+        </div>
+        <div class="work-overlay">
+          <span class="w-cat">✦ Web Development</span>
+          <h3 class="w-title">Creative Portfolio Website</h3>
+          <p class="w-desc">Custom HTML/CSS/JS portfolio built from scratch — fast, responsive, animated.</p>
+          <div class="w-foot">
+            <span class="w-year">2026</span>
+            <a href="#" target="_blank" class="w-link">View Live <span class="arr">→</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── PROJECT 8 ─── -->
+      <div class="work-card rev r4" data-category="editing">
+        <img src="images/project03.jpeg" class="work-thumb-img" alt="Project 8 Thumbnail">
+        <div class="work-overlay">
+          <span class="w-cat">✦ Video Editing</span>
+          <h3 class="w-title">Documentary Style Vlog</h3>
+          <p class="w-desc">Cinematic Documentary vlog with dynamic pacing, natural sound design, and warm grade.</p>
+          <div class="w-foot">
+            <span class="w-year">2025</span>
+            <a href="https://drive.google.com/drive/folders/16LeTOL1jQFY_byw1iQB2luTqfwFqqSAs?usp=sharing" target="_blank" class="w-link">Watch Now <span class="arr">→</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── VERTICAL VIDEO CARD (Reels / Shorts) ───────────────────────────
+           This card style shows a phone-frame for portrait/vertical videos.
+           data-category="motion" makes it appear under Motion Graphics filter.
+           HOW TO USE:
+           - Replace .phone-screen-ph with <img src="images/reel-thumb.jpg" class="phone-screen">
+           - Update title, description, year
+           - Update the href link with your YouTube Shorts / Instagram Reels URL
+           - Duplicate this card for each Reel you want to show
+      ──────────────────────────────────────────────────────────────────────── -->
+      <!-- ─── SHORT PROJECT 01 ─── -->
+      <div class="work-card vertical rev r1" data-category="shorts">
+        <div class="phone-frame">
+          <div class="phone-mock">
+            <!--
+              TO ADD REAL REEL THUMBNAIL:
+              Delete div.phone-screen-ph below and replace with:
+              <img src="images/reel-thumb.jpg" class="phone-screen" alt="Reel name">
+            -->
+            <img src="images/short01.png" class="phone-screen" alt="Goolge GEM">
+          </div>
+          <div class="phone-info">
+            <span class="phone-tag">✦ Instagram Reels</span>
+            <div class="phone-title">Gemini's Gem Reel</div>
+            <div class="phone-desc">60-second vertical brand promo — edited, graded, and motion-graphics designed for Instagram & YouTube Shorts.</div>
+            <!-- ▸ UPDATE LINK to your actual Reel/Short URL -->
+            <a href="https://www.instagram.com/reel/DWMEn1JjdER/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="phone-link">Watch Reel →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── SHORT PROJECT 02 ─── -->
+      <div class="work-card vertical rev r1" data-category="shorts">
+        <div class="phone-frame">
+          <div class="phone-mock">
+            <img src="images/short02.jpg" class="phone-screen" alt="Deepseek v/s ChatGPT">
+          </div>
+          <div class="phone-info">
+            <span class="phone-tag">✦ YouTube Shorts</span>
+            <div class="phone-title">China v/s America Short</div>
+            <div class="phone-desc">60-second vertical brand promo — edited, graded, and motion-graphics designed for Instagram & YouTube Shorts.</div>
+            <!-- ▸ UPDATE LINK to your actual Reel/Short URL -->
+            <a href="https://youtube.com/shorts/ec8iHU4wT9c?si=gOltpTdyJwGTtthf" target="_blank" class="phone-link">Watch Reel →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copy the vertical card block above for each new Reel/Short you want to add -->
+
+      <!--
+      ╔══════════════════════════════════════════╗
+      ║  PASTE NEW PROJECTS ABOVE THIS LINE      ║
+      ╚══════════════════════════════════════════╝
+      -->
+
+    </div><!-- /work-grid -->
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ════════════════════════════════════════════════════════
+
+     ██████  THUMBNAIL GALLERY SECTION  ██████
+     (Hidden by default — opens when "View Gallery" is clicked in the Work section)
+
+     HOW TO ADD THUMBNAILS:
+     ▸ Copy a .tg-item block below
+     ▸ Replace .tg-item-ph with: <img src="images/thumb.jpg" alt="Caption">
+     ▸ Update .tg-caption text
+     ▸ You can have as many thumbnails as you want here
+     ▸ To close the gallery, click the "← Close Gallery" button
+════════════════════════════════════════════════════════ -->
+<section id="thumb-gallery" class="sec">
+  <div class="sec-inner">
+    <div class="tg-header">
+      <div>
+        <div class="sec-eyebrow">Thumbnail Design</div>
+        <h2 class="sec-title">Full Thumbnail <em>Gallery</em></h2>
+      </div>
+      <button class="tg-close" onclick="closeGallery()">← Close Gallery</button>
+    </div>
+
+    <div class="tg-grid">
+
+      <!--
+      ╔═══════════════════════════════════════════════════════════╗
+      ║  HOW TO ADD A THUMBNAIL                                   ║
+      ║  Copy this block and paste inside tg-grid:               ║
+      ║                                                           ║
+      ║  <div class="tg-item">                                    ║
+      ║    <img src="images/your-thumb.jpg" alt="Caption">        ║
+      ║    <div class="tg-overlay">                               ║
+      ║      <span class="tg-caption">Video Title Here</span>     ║
+      ║    </div>                                                  ║
+      ║  </div>                                                    ║
+      ║                                                           ║
+      ║  HOW TO REMOVE: Delete the entire .tg-item block          ║
+      ╚═══════════════════════════════════════════════════════════╝
+      -->
+
+      <!-- THUMBNAIL 1 — Replace placeholder with real image -->
+      <div class="tg-item">
+        <img src="images/thumb02.png" alt="Thumbnail 2">
+        <div class="tg-overlay"><span class="tg-caption">Channel Name — Ep. Title</span></div>
+      </div>
+
+      <!-- THUMBNAIL 2 -->
+      <div class="tg-item">
+        <img src="images/thumb03.png" alt="Thumbnail 3">
+        <div class="tg-overlay"><span class="tg-caption">Channel Name — Ep. Title</span></div>
+      </div>
+
+      <!-- THUMBNAIL 3 -->
+      <div class="tg-item">
+        <img src="images/thumb04.png" alt="Thumbnail 4">
+        <div class="tg-overlay"><span class="tg-caption">Channel Name — Ep. Title</span></div>
+      </div>
+
+      <!-- THUMBNAIL 4 -->
+      <div class="tg-item">
+        <img src="images/thumb05.png" alt="Thumbnail 5">
+        <div class="tg-overlay"><span class="tg-caption">Channel Name — Ep. Title</span></div>
+      </div>
+
+      <!-- THUMBNAIL 5 -->
+      <div class="tg-item">
+        <img src="images/thumb06.png" alt="Thumbnail 6">
+        <div class="tg-overlay"><span class="tg-caption">Channel Name — Ep. Title</span></div>
+      </div>
+
+      <!-- THUMBNAIL 6 -->
+      <div class="tg-item">
+        <img src="images/thumb07.png" alt="Thumbnail 7">
+        <div class="tg-overlay"><span class="tg-caption">Channel Name — Ep. Title</span></div>
+      </div>
+
+      <!-- THUMBNAIL 7 
+      <div class="tg-item">
+        <div class="tg-item-ph">🖼️</div>
+        <div class="tg-overlay"><span class="tg-caption">Channel Name — Ep. Title</span></div>
+      </div>-->
+
+      <!-- THUMBNAIL 8 
+      <div class="tg-item">
+        <div class="tg-item-ph">🖼️</div>
+        <div class="tg-overlay"><span class="tg-caption">Channel Name — Ep. Title</span></div>
+      </div>-->
+
+      <!-- ADD MORE THUMBNAILS BELOW — copy any block above -->
+
+    </div><!-- /tg-grid -->
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ════════════════════════════════════════════════════════
+
+     ██████  SERVICES SECTION  ██████
+
+     HOW TO EDIT:
+     ▸ Change .svc-icon emoji
+     ▸ Change .svc-title and .svc-desc text
+     ▸ Add/edit .svc-tag tool chips
+     ▸ Copy a .svc-card block to add new service
+     ▸ Delete .svc-card to remove a service
+════════════════════════════════════════════════════════ -->
+<section id="services" class="sec">
+  <div class="sec-inner">
+    <div class="sec-eyebrow rev">What I Do</div>
+    <h2 class="sec-title rev r1">Services Built for <em>Impact</em></h2>
+    <p class="sec-sub rev r2">
+      Every service I offer is laser-focused on one goal — making your content
+      undeniably watchable, shareable, and unforgettable.
+    </p>
+
+    <div class="svc-grid">
+
+      <!-- SERVICE 1 -->
+      <div class="svc-card rev">
+        <span class="svc-icon">🎬</span>
+        <div class="svc-num">01</div>
+        <h3 class="svc-title">Video Editing</h3>
+        <p class="svc-desc">From raw clips to polished final cut. Long-form YouTube, short-form reels, commercials, vlogs — edited with precision pacing and cinematic energy.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">Premiere Pro</span>
+          <span class="svc-tag">DaVinci Resolve</span>
+          <span class="svc-tag">After Effects</span>
+        </div>
+      </div>
+
+      <!-- SERVICE 2 -->
+      <div class="svc-card rev r1">
+        <span class="svc-icon">🎨</span>
+        <div class="svc-num">02</div>
+        <h3 class="svc-title">Color Grading</h3>
+        <p class="svc-desc">Transforming flat footage into mood-defining visuals. Cinematic teal-orange, warm film grain, or clean YouTube brightness — I match your brand.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">DaVinci Resolve</span>
+          <span class="svc-tag">Lumetri Color</span>
+          <span class="svc-tag">LUTs</span>
+        </div>
+      </div>
+
+      <!-- SERVICE 3 -->
+      <div class="svc-card rev r2">
+        <span class="svc-icon">⚡</span>
+        <div class="svc-num">03</div>
+        <h3 class="svc-title">Motion Graphics & VFX</h3>
+        <p class="svc-desc">Animated titles, lower thirds, kinetic text, custom transitions and visual effects — all designed to make your video feel premium.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">After Effects</span>
+          <span class="svc-tag">Motion Bro</span>
+          <span class="svc-tag">Element 3D</span>
+        </div>
+      </div>
+
+      <!-- SERVICE 4 -->
+      <div class="svc-card rev r3">
+        <span class="svc-icon">🖼️</span>
+        <div class="svc-num">04</div>
+        <h3 class="svc-title">Thumbnail Design</h3>
+        <p class="svc-desc">High-CTR YouTube thumbnails that stop the scroll. Bold composition, expressive subjects, punchy text — designed to make people click.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">Photoshop</span>
+          <span class="svc-tag">Canva Pro</span>
+          <span class="svc-tag">Firefly AI</span>
+        </div>
+      </div>
+
+      <!-- SERVICE 5 -->
+      <div class="svc-card rev r4">
+        <span class="svc-icon">📱</span>
+        <div class="svc-num">05</div>
+        <h3 class="svc-title">Reels & Short-Form</h3>
+        <p class="svc-desc">Instagram Reels, YouTube Shorts, TikTok edits — hook-first, fast-paced, platform-optimized to maximize watch time and shares.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">Premiere Rush</span>
+          <span class="svc-tag">CapCut</span>
+          <span class="svc-tag">Trending Audio</span>
+        </div>
+      </div>
+
+      <!-- SERVICE 6 -->
+      <div class="svc-card rev r5">
+        <span class="svc-icon">💻</span>
+        <div class="svc-num">06</div>
+        <h3 class="svc-title">Web Development</h3>
+        <p class="svc-desc">Clean, responsive websites, portfolio pages, and landing pages. HTML/CSS/JS with Python backends — the technical edge that powers the creative.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">HTML / CSS</span>
+          <span class="svc-tag">JavaScript</span>
+          <span class="svc-tag">Python</span>
+        </div>
+      </div>
+
+      <!-- ADD MORE SERVICES BELOW IF NEEDED -->
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ════════════════════════════════════════════════════════
+
+     ██████  TOOLS & SOFTWARE SECTION  ██████
+
+     HOW TO EDIT:
+     ▸ Change the emoji in .tool-icon
+     ▸ Change the name in .tool-name
+     ▸ Copy .tool-card to add more tools
+     ▸ Delete .tool-card to remove tools
+════════════════════════════════════════════════════════ -->
+<section id="tools" class="sec">
+  <div class="sec-inner">
+    <div class="sec-eyebrow rev">My Arsenal</div>
+    <h2 class="sec-title rev r1">Tools I <em>Master</em></h2>
+
+    <div class="tools-grid">
+      <div class="tool-card rev">     <div class="tool-icon"><img src="images/premierepro.svg" alt="Premiere Pro"></div><div class="tool-name">Premiere Pro</div></div>
+      <div class="tool-card rev r1">  <div class="tool-icon"><img src="images/aftereffects.svg" alt="After Effects"></div><div class="tool-name">After Effects</div></div>
+      <div class="tool-card rev r2">  <div class="tool-icon"><img src="images/capcut.svg" alt="CapCut"></div><div class="tool-name">CapCut</div></div>
+      <div class="tool-card rev r3">  <div class="tool-icon"><img src="images/microsoft.svg" alt="Microsoft office"></div><div class="tool-name">Microsoft office</div></div>
+      <div class="tool-card rev r4">  <div class="tool-icon"><img src="images/canva.svg" alt="Canva"></div><div class="tool-name">Canva</div></div>
+      <div class="tool-card rev r2">  <div class="tool-icon"><img src="images/figma.svg" alt="Figma"></div><div class="tool-name">Figma</div></div>
+      <div class="tool-card rev r5">  <div class="tool-icon"><img src="images/youtubestudio.svg" alt="YouTube Studio"></div><div class="tool-name">YouTube Studio</div></div>
+      <div class="tool-card rev r2">  <div class="tool-icon"><img src="images/python.svg" alt="Python"></div><div class="tool-name">Python</div></div>
+      <div class="tool-card rev r3">  <div class="tool-icon"><img src="images/globe.svg" alt="HTML / CSS"></div><div class="tool-name">HTML / CSS</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ════════════════════════════════════════════════════════
+
+     ██████  TESTIMONIALS SECTION  ██████
+
+     HOW TO EDIT:
+     ▸ Replace placeholder text with real client reviews
+     ▸ Update .t-name (client name) and .t-role
+     ▸ Update .t-avatar initials (2–3 letters)
+     ▸ Copy .t-card to add more testimonials
+════════════════════════════════════════════════════════ -->
+<section id="testi" class="sec">
+  <div class="sec-inner">
+    <div class="sec-eyebrow rev">Social Proof</div>
+    <h2 class="sec-title rev r1">What Clients <em>Say</em></h2>
+
+    <div class="testi-grid">
+
+      <!-- TESTIMONIAL 1 — Replace with real review -->
+      <div class="t-card rev">
+        <div class="t-stars">★★★★★</div>
+        <div class="t-quote-mark">"</div>
+        <p class="t-text">
+          Waqar's editing completely transformed our YouTube channel. The pacing,
+          the color grade, the transitions — everything felt cinematic. Our watch
+          time went up by 60% after just 3 videos.
+        </p>
+        <div class="t-author">
+          <!--
+          HOW TO ADD CLIENT PHOTO:
+          Option A — Real photo:
+            Delete the entire div.t-avatar below and replace with:
+            <img src="images/client1.jpg" alt="Client Name"
+                 style="width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid var(--accent);flex-shrink:0">
+
+          Option B — Keep initials (no photo):
+            Just update the initials text below
+          -->
+          <div class="t-avatar">AA</div>
+          <div>
+            <div class="t-name">— Alex Arc</div>
+            <div class="t-role">YouTube Creator / Alexarczone</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TESTIMONIAL 2 -->
+      <div class="t-card rev r1">
+        <div class="t-stars">★★★★★</div>
+        <div class="t-quote-mark">"</div>
+        <p class="t-text">
+          Delivered on time, communicated perfectly, and the final edit was
+          beyond what I imagined. The motion graphics were especially impressive.
+          Will definitely work together again!
+        </p>
+        <div class="t-author">
+          <!-- Replace initials with <img> tag for real photo (see instructions above) -->
+          <div class="t-avatar">EM</div>
+          <div>
+            <div class="t-name">— Ehsan Muneer</div>
+            <div class="t-role">Content Creator / Instagram</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TESTIMONIAL 3 
+      <div class="t-card rev r2">
+        <div class="t-stars">★★★★★</div>
+        <div class="t-quote-mark">"</div>
+        <p class="t-text">
+          The thumbnails Waqar designed for us instantly boosted our CTR.
+          He understands what makes people click — it's part psychology,
+          part design genius. Highly recommend.
+        </p>
+        <div class="t-author">
+          <div class="t-avatar">SB</div>
+          <div>
+            <div class="t-name">— Client Name Here</div>
+            <div class="t-role">Brand Manager / Company Name</div>
+          </div>
+        </div>
+      </div>
+      -->
+
+      <!-- TESTIMONIAL 4 
+      <div class="t-card rev r3">
+        <div class="t-stars">★★★★★</div>
+        <div class="t-quote-mark">"</div>
+        <p class="t-text">
+          Fast turnaround, great communication, genuinely talented. Waqar
+          gets the brief immediately and delivers something that always
+          exceeds expectations. A pleasure to work with.
+        </p>
+        <div class="t-author">
+          <div class="t-avatar">ZH</div>
+          <div>
+            <div class="t-name">— Client Name Here</div>
+            <div class="t-role">Entrepreneur / Startup Name</div>
+          </div>
+        </div>
+      </div>
+      -->
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ════════════════════════════════════════════════════════
+
+     ██████  CONTACT SECTION  ██████
+
+     HOW TO EDIT:
+     ▸ Update your email address (x2 in this section)
+     ▸ Update your WhatsApp number
+     ▸ Update social media hrefs
+     ▸ Set up Formspree (free) for contact form:
+       1. Go to https://formspree.io — free account
+       2. Create a new form
+       3. Copy your form ID (e.g., xpzgkrev)
+       4. Replace "YOUR_FORMSPREE_ID" in the form action below
+════════════════════════════════════════════════════════ -->
+<section id="contact" class="sec">
+  <div class="contact-bg-word">CONTACT</div>
+  <div class="sec-inner">
+    <div class="sec-eyebrow rev">Get In Touch</div>
+    <h2 class="sec-title rev r1">
+      Let's Create<br>Something <em>Unforgettable</em>
+    </h2>
+
+    <div class="contact-grid">
+
+      <!-- LEFT: Info -->
+      <div class="rev r2">
+        <p style="color:var(--text-2);line-height:1.8;font-size:1rem;margin-bottom:.5rem">
+          Have a project in mind? A video that needs the perfect edit?
+          A brand that deserves better content? Let's talk.
+          I respond within <strong style="color:var(--accent)">24 hours</strong>.
+        </p>
+
+        <div class="c-info-list">
+          <div class="c-info-item">
+            <div class="c-icon">✉</div>
+            <div>
+              <div class="c-lbl">Email</div>
+              <!-- ▸ UPDATE YOUR EMAIL -->
+              <a href="mailto:waqar55754187@gmail.com" class="c-val">waqar55754187@gmail.com</a>
+            </div>
+          </div>
+          <div class="c-info-item">
+            <div class="c-icon">💬</div>
+            <div>
+              <div class="c-lbl">WhatsApp</div>
+              <!-- ▸ UPDATE YOUR NUMBER -->
+              <a href="https://wa.me/923104026691" class="c-val">+92 310 4026691</a>
+            </div>
+          </div>
+          <div class="c-info-item">
+            <div class="c-icon">📍</div>
+            <div>
+              <div class="c-lbl">Location</div>
+              <!-- ▸ UPDATE YOUR CITY -->
+              <span class="c-val">Faisalabad, Punjab, Pakistan</span>
+            </div>
+          </div>
+          <div class="c-info-item">
+            <div class="c-icon">⏱</div>
+            <div>
+              <div class="c-lbl">Response Time</div>
+              <span class="c-val">Within 24 hours</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOCIAL LINKS — ▸ UPDATE hrefs with your actual profile URLs
+             Icons use Simple Icons CDN (simpleicons.org) — free, official brand logos.
+             On hover they show their real brand color. Dark mode shows them white.
+
+             HOW TO CHANGE AN ICON:
+             1. Go to simpleicons.org
+             2. Search the platform name
+             3. Find the icon slug (e.g., YouTube = "youtube", Instagram = "instagram")
+             4. Replace the slug in src="https://cdn.simpleicons.org/SLUG/ffffff"
+        -->
+        <div class="c-socials">
+
+          <!-- YouTube — ▸ Replace # with your channel URL -->
+          <a href="https://www.youtube.com/@VarietiesofTech" target="_blank" class="soc-btn" title="YouTube">
+            <img src="https://cdn.simpleicons.org/youtube/ffffff" alt="YouTube">
+          </a>
+
+          <!-- Instagram — ▸ Replace # with your profile URL -->
+          <a href="https://www.instagram.com/votstudio/" target="_blank" class="soc-btn" title="Instagram">
+            <img src="https://cdn.simpleicons.org/instagram/ffffff" alt="Instagram">
+          </a>
+
+          <!-- LinkedIn — ▸ Replace # with your profile URL -->
+          <a href="https://www.linkedin.com/in/waqarahmad5575/" target="_blank" class="soc-btn" title="LinkedIn">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg" alt="LinkedIn">
+          </a>
+
+          <!-- GitHub — ▸ Replace # with your profile URL -->
+          <a href="https://github.com/mrwakkaki" target="_blank" class="soc-btn" title="GitHub">
+            <img src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub">
+          </a>
+
+          <!-- WhatsApp — ▸ Update number if it changes
+          <a href="https://wa.me/923104026691" target="_blank" class="soc-btn" title="WhatsApp">
+            <img src="https://cdn.simpleicons.org/whatsapp/ffffff" alt="WhatsApp">
+          </a>
+          -->
+
+          <!-- TikTok — ▸ Replace # with your TikTok URL (or remove this block) -->
+          <a href="#" target="_blank" class="soc-btn" title="TikTok">
+            <img src="https://cdn.simpleicons.org/tiktok/ffffff" alt="TikTok">
+          </a>
+
+        </div>
+      </div>
+
+      <!-- RIGHT: Contact Form -->
+      <div class="rev r3">
+        <!--
+        ╔══════════════════════════════════════════════════════╗
+        ║  HOW TO ACTIVATE CONTACT FORM (100% FREE)          ║
+        ║  1. Go to https://formspree.io (no credit card)    ║
+        ║  2. Sign up with your Gmail                        ║
+        ║  3. Click "New Form" → give it a name              ║
+        ║  4. Copy your form ID (e.g. xpzgkrev)              ║
+        ║  5. Replace YOUR_FORMSPREE_ID below with your ID   ║
+        ║  6. Messages will come directly to your Gmail!      ║
+        ╚══════════════════════════════════════════════════════╝
+        -->
+        <form class="contact-form"
+          action="https://formspree.io/f/xdarbjod"
+          method="POST" id="contact-form">
+
+          <div class="f-row">
+            <div>
+              <label class="f-lbl" for="name">Your Name</label>
+              <input type="text" id="name" name="name" class="f-input" placeholder="John Doe" required />
+            </div>
+            <div>
+              <label class="f-lbl" for="email">Email Address</label>
+              <input type="email" id="email" name="email" class="f-input" placeholder="john@email.com" required />
+            </div>
+          </div>
+
+          <div>
+            <label class="f-lbl" for="service">Service Needed</label>
+            <select id="service" name="service" class="f-input f-select">
+              <option value="" disabled selected>Select a service…</option>
+              <option>Video Editing</option>
+              <option>Color Grading</option>
+              <option>Motion Graphics</option>
+              <option>Thumbnail Design</option>
+              <option>Reels & Short-Form</option>
+              <option>Web Development</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="f-lbl" for="budget">Budget Range (Optional)</label>
+            <input type="text" id="budget" name="budget" class="f-input" placeholder="e.g. $50 – $200" />
+          </div>
+
+          <div>
+            <label class="f-lbl" for="message">Tell Me About Your Project</label>
+            <textarea id="message" name="message" class="f-textarea"
+              placeholder="Describe your project, goals, timeline…" required></textarea>
+          </div>
+
+          <button type="submit" class="f-submit">Send Message ↗</button>
+          <p id="f-status"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="foot-inner">
+    <div>
+      <div class="foot-logo">WAQAR AHMAD</div>
+      <div class="foot-tag">Video Editor & Motion Designer</div>
+    </div>
+    <div class="foot-copy">
+      © 2026 Waqar Ahmad. All rights reserved.<br>
+      <small>Handcrafted with ❤️ & Code</small>
+    </div>
+    <button class="foot-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+      ↑ Back to Top
+    </button>
+  </div>
+</footer>
+
+
+<!-- ════════════════════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════════════════════ -->
+<script>
+/* ─── Scroll Progress Bar ─────────────────────────── */
+const prog = document.getElementById('progress-bar');
+window.addEventListener('scroll', () => {
+  const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+  prog.style.width = pct + '%';
+}, {passive:true});
+
+/* ─── Custom Cursor ──────────────────────────────── */
+const ring = document.getElementById('cur-ring');
+const dot  = document.getElementById('cur-dot');
+let mx=0, my=0, rx=0, ry=0;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  dot.style.left = mx+'px'; dot.style.top = my+'px';
+});
+
+(function animRing() {
+  rx += (mx - rx) * .11;
+  ry += (my - ry) * .11;
+  ring.style.left = rx+'px'; ring.style.top = ry+'px';
+  requestAnimationFrame(animRing);
+})();
+
+document.querySelectorAll('a,button,.work-card,.svc-card,.tool-card,.flt-btn').forEach(el => {
+  el.addEventListener('mouseenter', () => { ring.classList.add('hov'); dot.classList.add('hov'); });
+  el.addEventListener('mouseleave', () => { ring.classList.remove('hov'); dot.classList.remove('hov'); });
+});
+
+/* ─── Navbar Scroll ──────────────────────────────── */
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 55);
+}, {passive:true});
+
+/* ─── Hamburger / Mobile Menu ────────────────────── */
+const ham     = document.getElementById('ham');
+const mobMenu = document.getElementById('mob-menu');
+
+ham.addEventListener('click', () => {
+  ham.classList.toggle('open');
+  mobMenu.classList.toggle('open');
+  document.body.style.overflow = mobMenu.classList.contains('open') ? 'hidden' : '';
+});
+document.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', () => {
+  ham.classList.remove('open');
+  mobMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}));
+
+/* ─── Theme Toggle ───────────────────────────────── */
+const html = document.documentElement;
+let dark = true;
+function applyTheme() {
+  html.setAttribute('data-theme', dark ? 'dark' : 'light');
+  ['theme-icon','mob-theme-icon'].forEach(id => document.getElementById(id).textContent = dark ? '☀️' : '🌙');
+  ['theme-lbl','mob-theme-lbl'].forEach((id,i) => document.getElementById(id).textContent = dark ? (i?'Light Mode':'Light') : (i?'Dark Mode':'Dark'));
+}
+document.getElementById('theme-btn').addEventListener('click', () => { dark=!dark; applyTheme(); });
+document.getElementById('mob-theme-btn').addEventListener('click', () => { dark=!dark; applyTheme(); });
+
+/* ─── Typewriter ─────────────────────────────────── */
+const tw = document.getElementById('typewriter');
+const roles = ['Video Editor','Motion Designer','Color Grading Artist','YouTube Producer','Creative Director'];
+let ri=0, ci=0, del=false, spd=80;
+function type() {
+  const cur = roles[ri];
+  tw.textContent = del ? cur.slice(0,ci-1) : cur.slice(0,ci+1);
+  del ? ci-- : ci++;
+  spd = del ? 38 : 80;
+  if (!del && ci===cur.length) { del=true; spd=1900; }
+  else if (del && ci===0)     { del=false; ri=(ri+1)%roles.length; spd=380; }
+  setTimeout(type, spd);
+}
+setTimeout(type, 1600);
+
+/* ─── Scroll Reveal ──────────────────────────────── */
+const revEls = document.querySelectorAll('.rev');
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold:.12, rootMargin:'0px 0px -45px 0px' });
+revEls.forEach(el => revObs.observe(el));
+
+/* ─── Skill Bars ─────────────────────────────────── */
+const skillsObs = new IntersectionObserver(entries => {
+  if(entries[0].isIntersecting) {
+    document.querySelectorAll('.skill-fill').forEach(f => {
+      f.style.width = f.dataset.fill + '%';
+    });
+    skillsObs.disconnect();
+  }
+}, { threshold:.3 });
+const sb = document.getElementById('skills-bars');
+if(sb) skillsObs.observe(sb);
+
+/* ─── Work Filter ────────────────────────────────── */
+document.querySelectorAll('.flt-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.flt-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    document.querySelectorAll('.work-card').forEach(card => {
+      const match = f === 'all' || card.dataset.category === f;
+      card.style.transition = 'opacity .35s ease, transform .35s ease';
+      if (match) {
+        card.style.display = '';
+        setTimeout(() => { card.style.opacity='1'; card.style.transform=''; }, 10);
+      } else {
+        card.style.opacity = '0';
+        setTimeout(() => { card.style.display='none'; }, 360);
+      }
+    });
+  });
+});
+
+/* ─── Hero Particle Canvas ───────────────────────── */
+const cvs = document.getElementById('hero-canvas');
+const c   = cvs.getContext('2d');
+function resizeCvs() { cvs.width=innerWidth; cvs.height=innerHeight; }
+resizeCvs();
+window.addEventListener('resize', resizeCvs, {passive:true});
+
+const COLS = ['33,158,188', '255,183,3', '142,202,230', '251,133,0'];
+class Pt {
+  constructor() { this.r(); }
+  r() {
+    this.x = Math.random()*cvs.width;
+    this.y = Math.random()*cvs.height;
+    this.s = Math.random()*1.4 + .2;
+    this.vx = (Math.random()-.5)*.28;
+    this.vy = (Math.random()-.5)*.28;
+    this.a  = Math.random()*.45 + .08;
+    this.col= COLS[Math.floor(Math.random()*COLS.length)];
+  }
+  u() {
+    this.x += this.vx; this.y += this.vy;
+    if(this.x<0||this.x>cvs.width||this.y<0||this.y>cvs.height) this.r();
+  }
+  d() {
+    c.beginPath();
+    c.arc(this.x,this.y,this.s,0,Math.PI*2);
+    c.fillStyle = `rgba(${this.col},${this.a})`;
+    c.fill();
+  }
+}
+const pts = Array.from({length:90}, () => new Pt());
+(function anim() {
+  c.clearRect(0,0,cvs.width,cvs.height);
+  pts.forEach(p => { p.u(); p.d(); });
+  requestAnimationFrame(anim);
+})();
+
+/* ─── Magnetic Buttons ───────────────────────────── */
+document.querySelectorAll('.btn-prim,.btn-sec,.f-submit,.nav-hire').forEach(btn => {
+  btn.addEventListener('mousemove', e => {
+    const r = btn.getBoundingClientRect();
+    const x = (e.clientX - r.left - r.width/2) * .22;
+    const y = (e.clientY - r.top  - r.height/2) * .22;
+    btn.style.transform = `translate(${x}px,${y}px)`;
+  });
+  btn.addEventListener('mouseleave', () => btn.style.transform = '');
+});
+
+/* ─── Contact Form (Formspree) ───────────────────── */
+const cf  = document.getElementById('contact-form');
+const fst = document.getElementById('f-status');
+if(cf) {
+  cf.addEventListener('submit', async e => {
+    e.preventDefault();
+    const btn = cf.querySelector('.f-submit');
+    btn.textContent = 'Sending…'; btn.disabled = true;
+    try {
+      const res = await fetch(cf.action, {
+        method:'POST', body:new FormData(cf),
+        headers:{'Accept':'application/json'}
+      });
+      fst.style.display = 'block';
+      if(res.ok) {
+        fst.textContent = '✓ Message sent! I\'ll reply within 24 hours.';
+        fst.style.color = '#22c55e'; cf.reset();
+      } else {
+        fst.textContent = '✕ Something went wrong. Email me directly.';
+        fst.style.color = '#ef4444';
+      }
+    } catch(_) {
+      fst.style.display='block';
+      fst.textContent='✕ Network error. Please email me directly.';
+      fst.style.color='#ef4444';
+    }
+    btn.textContent='Send Message ↗'; btn.disabled=false;
+  });
+}
+
+/* ─── Smooth scroll for anchor links ─────────────── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
+  });
+});
+
+/* ─── Thumbnail Gallery open / close ────────────── */
+const gallery = document.getElementById('thumb-gallery');
+
+window.openGallery = function() {
+  if (!gallery) return;
+  gallery.classList.add('open');
+  setTimeout(() => gallery.scrollIntoView({ behavior:'smooth', block:'start' }), 60);
+};
+
+window.closeGallery = function() {
+  if (!gallery) return;
+  gallery.classList.remove('open');
+  const ws = document.getElementById('work');
+  if (ws) ws.scrollIntoView({ behavior:'smooth', block:'start' });
+};
+
+/* ─── Social icons: brand color on hover ────────── */
+const BRAND = {
+  YouTube:   'FF0000',
+  Instagram: 'E4405F',
+  GitHub:    '181717',
+  WhatsApp:  '25D366',
+  TikTok:    '010101',
+};
+document.querySelectorAll('.soc-btn').forEach(btn => {
+  const img = btn.querySelector('img');
+  const lbl = btn.getAttribute('title');
+  if (!img || !BRAND[lbl]) return;
+  const base = img.src.replace(/\/[a-fA-F0-9]{3,8}$/, '');
+  btn.addEventListener('mouseenter', () => {
+    img.src = base + '/' + BRAND[lbl];
+    img.style.filter  = 'none';
+    img.style.opacity = '1';
+  });
+  btn.addEventListener('mouseleave', () => {
+    img.src = base + '/ffffff';
+    img.style.filter  = '';
+    img.style.opacity = '';
+  });
+});
+</script>
+
+</body>
+</html>
