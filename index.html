@@ -1084,10 +1084,52 @@
       .hero-inner { padding:calc(var(--nav-h) + 55px) 5% 110px; }
       .hero-stats { flex-wrap:wrap; gap:1.5rem 2.5rem; justify-content:flex-start; }
       .scroll-ind { display:none; }
-      .work-card { min-height:280px; }
-      .w-title { font-size:1.1rem !important; line-height:1.3; }
-      .w-desc  { font-size:.78rem !important; line-height:1.5; -webkit-line-clamp:2; display:-webkit-box; -webkit-box-orient:vertical; overflow:hidden; }
-      .work-overlay { padding:1.2rem; }
+      /* Work card overlay — compressed for mobile 16:9 cards */
+      .work-overlay {
+      padding: .85rem 1rem;
+      justify-content: flex-end;
+      gap: .2rem;
+    }
+    
+      .w-cat {
+      font-size: .46rem !important;
+      margin-bottom: .2rem !important;
+    }
+    
+      .w-title {
+      font-size: .82rem !important;
+      line-height: 1.2 !important;
+      margin-bottom: .25rem !important;
+    }
+    
+      .w-desc {
+      font-size: .68rem !important;
+      line-height: 1.35 !important;
+      margin-bottom: .5rem !important;
+      -webkit-line-clamp: 2;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    
+      .w-foot {
+      align-items: center;
+    }
+    
+      .w-year {
+      font-size: .5rem !important;
+    }
+    
+      .w-link {
+      font-size: .48rem !important;
+      padding: 4px 10px !important;
+    }
+    
+      .play-btn {
+      width: 42px !important;
+      height: 42px !important;
+      font-size: .9rem !important;
+    }
       .w-cat, .w-desc, .w-link, .w-title {
       opacity:1 !important;
       transform:none !important;
